@@ -1,4 +1,4 @@
-import { Check, Users, Shield, Heart, Star } from 'lucide-react';
+import { Check, Users, Shield, Heart, Star, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Membership() {
@@ -8,7 +8,7 @@ export default function Membership() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Membership Details</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Comprehensive benefits designed exclusively for healthcare professionals and their families
+            Voluntary membership in a mutual self-support trust for registered professionals — benefits strictly restricted to registered members only
           </p>
         </div>
       </section>
@@ -17,27 +17,27 @@ export default function Membership() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Membership Benefits
+              How Mutual Support Works
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our membership provides comprehensive coverage and support for you and your loved ones
+              PWT coordinates voluntary contributions from members to the nominee of a deceased member — directly and transparently
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
               <Users className="text-blue-600 mb-4" size={40} />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Individual Coverage</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Voluntary Membership</h3>
               <p className="text-gray-700">
-                Complete financial protection and support for the primary member
+                Membership is purely voluntary. No person shall be compelled to join or continue their membership.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
               <Heart className="text-blue-600 mb-4" size={40} />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Family Benefits</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Direct Contributions</h3>
               <p className="text-gray-700">
-                Extended coverage for up to 2 family members with full support
+                All contributions are transferred directly from members to the nominee's bank account. PWT is not a financial intermediary.
               </p>
             </div>
 
@@ -45,122 +45,114 @@ export default function Membership() {
               <Shield className="text-blue-600 mb-4" size={40} />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Nominee Protection</h3>
               <p className="text-gray-700">
-                Designated nominee receives comprehensive benefits and support
+                Designated nominee receives voluntary support from fellow members in the event of the member's passing.
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
               <Star className="text-blue-600 mb-4" size={40} />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Priority Support</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">App-Based Coordination</h3>
               <p className="text-gray-700">
-                24/7 dedicated support team for all member queries and needs
+                Digital platform for crisis alerts, information sharing, coordination of support, and professional networking.
               </p>
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-white mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">What's Included</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Member Obligations &amp; Support Details</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Primary Member Benefits</h3>
+                <h3 className="text-xl font-semibold mb-4">Contribution Compliance</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Comprehensive financial support scheme</span>
+                    <span>Members must contribute voluntarily to the nominee of a deceased member as per prescribed guidelines</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Emergency assistance fund access</span>
+                    <span>All contributions transferred directly to nominee's bank account</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Professional liability support</span>
+                    <span>Must upload valid payment receipts via website or designated Google Form</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Medical practice support services</span>
+                    <span>Failure to contribute or upload proof renders member ineligible for assistance</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Annual health checkup coverage</span>
+                    <span>Non-cooperation automatically suspends membership</span>
                   </li>
                 </ul>
               </div>
 
               <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Family Coverage</h3>
+                <h3 className="text-xl font-semibold mb-4">Conditions for Assistance</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Coverage for spouse and children</span>
+                    <span>Death due to natural causes, accidents, or critical illnesses (including cancer)</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Educational support for dependents</span>
+                    <span>Member must have completed the 12-month lock-in period</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Family health and wellness programs</span>
+                    <span>Member must have fulfilled all contribution obligations</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Emergency family assistance</span>
+                    <span>No fraud, suppression of facts, or misrepresentation</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Counseling and support services</span>
+                    <span>Final decision rests solely with the Trustees</span>
                   </li>
                 </ul>
               </div>
 
               <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Nominee Benefits</h3>
+                <h3 className="text-xl font-semibold mb-4">Lock-In Period</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Financial security assurance</span>
+                    <span>Mandatory lock-in period of <strong>12 months</strong> from date of joining</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Full benefit transfer provisions</span>
+                    <span>No assistance or claim entertained during lock-in</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Legal and documentation support</span>
+                    <span>Lock-in is <strong>non-waivable</strong> under any circumstances</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Priority claims processing</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Dedicated support coordinator</span>
+                    <span>After lock-in, member becomes eligible for mutual support</span>
                   </li>
                 </ul>
               </div>
 
               <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Additional Services</h3>
+                <h3 className="text-xl font-semibold mb-4">Exclusions</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Professional networking opportunities</span>
+                    <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
+                    <span>Death involving suicide or homicide allegations involving nominee</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Continuing education support</span>
+                    <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
+                    <span>Criminal proceedings or misrepresentation</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Legal consultation services</span>
+                    <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
+                    <span>PWT does <strong>not</strong> guarantee any amount — assistance depends on voluntary cooperation</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Financial planning assistance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Member exclusive events and seminars</span>
+                    <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
+                    <span>No claim is enforceable as a right or debt</span>
                   </li>
                 </ul>
               </div>
@@ -172,43 +164,72 @@ export default function Membership() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Who Can Join?</h3>
+                <p className="text-sm text-gray-600 mb-3">Membership is open to Indian citizens only — registered professionals in the following categories:</p>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Registered medical doctors (MBBS, MD, MS, etc.)</span>
+                    <span>Doctors &amp; Dentists</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Registered dental surgeons (BDS, MDS, etc.)</span>
+                    <span>Chartered Accountants</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Valid medical/dental council registration</span>
+                    <span>Lawyers</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Currently practicing or retired professionals</span>
+                    <span>Engineers</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>IT Professionals</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Teachers</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Healthcare Professionals</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Any other category approved by the Trustees</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Required Documents</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Age &amp; Membership Rules</h3>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Valid government-issued ID proof</span>
+                    <span>Applicants must be aged <strong>60 or below</strong> at the time of enrollment</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Professional degree certificates</span>
+                    <span>Membership terminates automatically at age <strong>65</strong></span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Medical/Dental council registration certificate</span>
+                    <span>Membership is non-transferable and non-assignable</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Recent passport-size photograph</span>
+                    <span>A yearly fee is required to register and maintain membership</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Membership does not create any legal or contractual right to benefits</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Voluntary withdrawals may rejoin after fulfilling all financial obligations</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Participation may be discontinued at any time, subject to terms</span>
                   </li>
                 </ul>
               </div>
@@ -218,7 +239,7 @@ export default function Membership() {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Join?</h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Take the first step towards securing your future and that of your family
+              Become part of a professional community built on voluntary mutual support. Read our <Link to="/terms" className="text-blue-600 hover:underline">By-Laws</Link> before applying.
             </p>
             <Link
               to="/join"

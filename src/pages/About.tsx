@@ -5,9 +5,9 @@ export default function About() {
     <div className="min-h-screen">
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About drswelfareindia</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Professionals Welfare Trust</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Health Care Professionals Self Support Scheme - Empowering medical professionals through mutual support and comprehensive benefits
+            A Member-Based Mutual Self Support Trust — Public Charitable &amp; Welfare Trust (Non-Profit)
           </p>
         </div>
       </section>
@@ -18,19 +18,19 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                drswelfareindia was founded with a singular vision: to create a comprehensive support system exclusively for healthcare professionals. Understanding the unique challenges faced by doctors and dentists, we developed a scheme that addresses their specific needs.
+                Professionals Welfare Trust (PWT) was founded with a singular vision: to create a voluntary mutual self-support system exclusively for registered professionals. Understanding the unique challenges faced by professionals across various fields, PWT brings together individuals who believe in the power of collective support.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Our organization brings together experienced healthcare professionals, financial experts, and support staff to deliver exceptional service and meaningful benefits to our members.
+                PWT is not an insurance company, investment scheme, or profit-making entity. It operates as a public charitable and welfare trust where members voluntarily contribute to support the families and nominees of deceased members — directly, transparently, and with full accountability.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Today, we proudly serve thousands of healthcare professionals across the country, providing them with financial security, community support, and peace of mind.
+                Today, PWT serves registered professionals across India — including Doctors, Dentists, Chartered Accountants, Lawyers, Engineers, IT Professionals, Teachers, and Healthcare workers — providing them with the assurance that their professional community stands together in times of need.
               </p>
             </div>
             <div>
               <img
                 src="https://images.pexels.com/photos/7579319/pexels-photo-7579319.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Healthcare Team"
+                alt="Professional Team"
                 className="rounded-lg shadow-lg"
               />
             </div>
@@ -43,7 +43,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Mission</h3>
               <p className="text-gray-600">
-                To provide comprehensive support and financial security to healthcare professionals
+                To coordinate voluntary mutual assistance among registered professionals for the benefit of members' nominees
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
               <p className="text-gray-600">
-                To be the most trusted support scheme for medical professionals nationwide
+                To be the most trusted mutual self-support trust for professionals nationwide, built on transparency and voluntary cooperation
               </p>
             </div>
 
@@ -63,7 +63,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Values</h3>
               <p className="text-gray-600">
-                Integrity, transparency, and unwavering commitment to our members
+                Integrity, transparency, voluntary cooperation, and unwavering commitment to our members and the trust's charitable purpose
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function About() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Growth</h3>
               <p className="text-gray-600">
-                Continuously expanding benefits and services for our growing community
+                Continuously expanding our community of professionals who believe in mutual support and collective welfare
               </p>
             </div>
           </div>
@@ -82,27 +82,27 @@ export default function About() {
             <h2 className="text-3xl font-bold mb-6">Why We're Different</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-3">Professional Focus</h3>
+                <h3 className="text-xl font-semibold mb-3">Not Insurance or Investment</h3>
                 <p className="text-blue-100 leading-relaxed">
-                  Unlike general support schemes, we focus exclusively on the needs and challenges of healthcare professionals, ensuring our benefits are truly relevant.
+                  PWT is a public charitable trust — not an insurance company, not an investment scheme, and not a profit-making entity. We facilitate voluntary mutual support among professionals.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3">Community Driven</h3>
+                <h3 className="text-xl font-semibold mb-3">Direct Member-to-Nominee Transfers</h3>
                 <p className="text-blue-100 leading-relaxed">
-                  Our scheme is built on the principle of mutual support, where healthcare professionals help each other through contributions and shared resources.
+                  All contributions are made directly from members to the nominee's bank account. PWT acts only as a coordinating and facilitating entity — not as a financial intermediary.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3">Transparent Operations</h3>
                 <p className="text-blue-100 leading-relaxed">
-                  We maintain complete transparency in our operations, ensuring members understand exactly how their contributions are managed and utilized.
+                  We maintain complete transparency through our digital platform. Accounts are audited annually by a Chartered Accountant, and members can verify all operations.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3">Comprehensive Coverage</h3>
+                <h3 className="text-xl font-semibold mb-3">Multi-Professional Community</h3>
                 <p className="text-blue-100 leading-relaxed">
-                  Our benefits extend beyond individual members to include family coverage and nominee support, providing complete peace of mind.
+                  Open to Doctors, Dentists, CAs, Lawyers, Engineers, IT Professionals, Teachers, Healthcare workers, and any other category approved by the Trustees.
                 </p>
               </div>
             </div>

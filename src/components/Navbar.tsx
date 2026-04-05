@@ -15,7 +15,7 @@ export default function Navbar() {
 
   const publicLinks = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
+    { path: '/about', label: 'About PWT' },
     { path: '/how-it-works', label: 'How It Works' },
     { path: '/membership', label: 'Membership Details' },
     { path: '/faq', label: 'FAQ' },
@@ -27,8 +27,8 @@ export default function Navbar() {
   const privateLinks = isAdmin 
     ? [{ path: '/admin', label: 'Admin Dashboard' }]
     : [
-        { path: '/doctors', label: 'Doctors' },
-        { path: '/deceased', label: 'Deceased' },
+        { path: '/doctors', label: 'Members' },
+        { path: '/deceased', label: 'Deceased Members' },
         { path: '/profile', label: 'My Profile' },
       ];
 
@@ -41,7 +41,10 @@ export default function Navbar() {
           {/* Logo - Left */}
           <Link to="/" className="flex items-center space-x-2">
             <Stethoscope className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-blue-600">drswelfareindia</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-blue-600 leading-tight">drswelfareindia</span>
+              <span className="text-[10px] text-gray-500 leading-tight">Professionals Welfare Trust</span>
+            </div>
           </Link>
 
           {/* Navigation Items - Center */}

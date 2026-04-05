@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Stethoscope, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Stethoscope, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -11,8 +11,11 @@ export default function Footer() {
               <Stethoscope className="h-8 w-8 text-blue-400" />
               <span className="text-xl font-bold">drswelfareindia</span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Supporting healthcare professionals through comprehensive benefits and mutual support schemes.
+            <p className="text-gray-400 text-sm leading-relaxed mb-2">
+              Professionals Welfare Trust (PWT) — A member-based mutual self-support trust for registered professionals.
+            </p>
+            <p className="text-gray-500 text-xs">
+              Public Charitable &amp; Welfare Trust (Non-Profit)
             </p>
           </div>
 
@@ -21,7 +24,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                  About Us
+                  About PWT
                 </Link>
               </li>
               <li>
@@ -32,6 +35,11 @@ export default function Footer() {
               <li>
                 <Link to="/membership" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
                   Membership Details
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  By-Laws
                 </Link>
               </li>
               <li>
@@ -47,11 +55,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-gray-400 text-sm">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span>123 Healthcare Avenue, Medical District, City 12345</span>
-              </li>
-              <li className="flex items-center space-x-2 text-gray-400 text-sm">
-                <Phone size={18} className="flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
+                <span>Hyderabad, Telangana State, India</span>
               </li>
               <li className="flex items-center space-x-2 text-gray-400 text-sm">
                 <Mail size={18} className="flex-shrink-0" />
@@ -81,9 +85,9 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-6 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} drswelfareindia. All rights reserved. |
-            <Link to="/privacy" className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</Link> |
-            <Link to="/terms" className="hover:text-blue-400 transition-colors ml-1">Terms of Service</Link>
+            &copy; {new Date().getFullYear()} Professionals Welfare Trust (PWT). All rights reserved. |
+            <Link to="/terms" className="hover:text-blue-400 transition-colors ml-1">By-Laws</Link> |
+            <Link to="/contact" className="hover:text-blue-400 transition-colors ml-1">Contact Us</Link>
           </p>
         </div>
       </div>

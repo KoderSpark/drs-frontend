@@ -45,14 +45,14 @@ export default function Doctors() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Registered Doctors</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Registered Members</h1>
           <div className="mt-4">
               <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
               className="mt-1 block w-48 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
             >
-              <option value="all">All Doctors</option>
+              <option value="all">All Members</option>
               <option value="approved">Active</option>
               <option value="deceased">Deceased</option>
             </select>
@@ -65,7 +65,7 @@ export default function Doctors() {
               <thead className="bg-gray-50">
                 <tr>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/2">
-                    Doctor Information
+                    Member Information
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3">
                     Qualification
@@ -79,7 +79,7 @@ export default function Doctors() {
                 {doctors.length === 0 ? (
                   <tr>
                     <td colSpan={4} className="px-6 py-8 text-center text-gray-500 text-sm">
-                      No doctors found
+                      No members found
                     </td>
                   </tr>
                 ) : (

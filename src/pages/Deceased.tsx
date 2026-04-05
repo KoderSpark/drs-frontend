@@ -53,13 +53,13 @@ export default function Deceased() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Deceased Doctors</h1>
-          <p className="mt-2 text-gray-600">List of doctors who have passed away</p>
+          <h1 className="text-3xl font-bold text-gray-900">Deceased Members</h1>
+          <p className="mt-2 text-gray-600">List of registered members who have passed away</p>
         </div>
 
         <div className="bg-white shadow overflow-hidden sm:rounded-lg">
           {doctors.length === 0 ? (
-            <div className="p-6 text-center text-gray-500">No deceased doctors found</div>
+            <div className="p-6 text-center text-gray-500">No deceased members found</div>
           ) : (
             <ul className="divide-y divide-gray-200">
               {doctors.map((doctor) => (

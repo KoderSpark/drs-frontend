@@ -1,4 +1,4 @@
-import { UserPlus, FileCheck, CreditCard, Shield, CheckCircle } from 'lucide-react';
+import { UserPlus, FileCheck, CreditCard, Shield, CheckCircle, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function HowItWorks() {
@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Join drswelfareindia in four simple steps and start enjoying comprehensive benefits for you and your family
+            Join Professionals Welfare Trust in simple steps and become part of a voluntary mutual self-support community of professionals
           </p>
         </div>
       </section>
@@ -16,9 +16,9 @@ export default function HowItWorks() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">Simple Process, Lasting Benefits</h2>
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">Simple Process, Meaningful Support</h2>
             <p className="text-gray-600 text-center max-w-2xl mx-auto">
-              Our streamlined process ensures you can become a member quickly and start enjoying benefits right away
+              Our streamlined process ensures you can become a registered member and join a community of professionals working together for mutual welfare
             </p>
           </div>
 
@@ -35,7 +35,7 @@ export default function HowItWorks() {
                       Complete Registration
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Fill out our comprehensive registration form with your personal details, professional credentials, and family information. The form is designed to be straightforward and user-friendly.
+                      Fill out the membership application form (physical or digital) with your personal details, professional credentials, and nominee information. Membership is open to Indian citizens only, aged 60 or below.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
@@ -44,11 +44,11 @@ export default function HowItWorks() {
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Upload required documents and certificates</span>
+                        <span>Upload required documents and professional certificates</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Add nominee and family member information</span>
+                        <span>Designate a nominee with their bank account details</span>
                       </li>
                     </ul>
                   </div>
@@ -79,10 +79,10 @@ export default function HowItWorks() {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
                       <FileCheck className="mr-3 text-blue-600" size={28} />
-                      Document Verification
+                      Trustee Approval
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Our team will review your submitted documents and credentials to verify your professional status. This process typically takes 2-3 business days.
+                      Trustees shall review your submitted documents and professional credentials. They have absolute discretion to approve or reject applications. Admission is effective only after registration in Trust records.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Email confirmation upon approval</span>
+                        <span>Confirmation upon Trustee approval</span>
                       </li>
                     </ul>
                   </div>
@@ -112,23 +112,23 @@ export default function HowItWorks() {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
                       <CreditCard className="mr-3 text-blue-600" size={28} />
-                      Complete Payment
+                      Pay Yearly Membership Fee
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Once approved, complete your membership payment through our secure payment gateway. Multiple payment options are available for your convenience.
+                      Once approved, complete your yearly membership fee payment. A yearly fee is required to register and maintain your membership. Membership remains valid only as long as you comply with all Rules &amp; Bye-Laws.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Secure online payment processing</span>
+                        <span>Yearly membership registration fee</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Multiple payment method options</span>
+                        <span>Membership is non-transferable and non-assignable</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Instant payment confirmation</span>
+                        <span>Payment confirmation and registration in Trust records</span>
                       </li>
                     </ul>
                   </div>
@@ -147,7 +147,7 @@ export default function HowItWorks() {
               <div>
                 <img
                   src="https://images.pexels.com/photos/8460157/pexels-photo-8460157.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Membership Benefits"
+                  alt="Lock-in Period"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -158,30 +158,49 @@ export default function HowItWorks() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
-                      <Shield className="mr-3 text-blue-600" size={28} />
-                      Enjoy Full Benefits
+                      <Clock className="mr-3 text-blue-600" size={28} />
+                      12-Month Lock-In &amp; Eligibility
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Your membership becomes active immediately upon payment confirmation. Access all benefits and support services right away.
+                      A mandatory lock-in period of 12 months applies from the date of joining. No assistance or claim shall be entertained during the lock-in period. After completing the lock-in, you become eligible for mutual support from fellow members.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Immediate access to all member benefits</span>
+                        <span>12-month mandatory lock-in — non-waivable</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Member portal login credentials</span>
+                        <span>Must fulfill all contribution obligations to remain eligible</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>24/7 support and assistance</span>
+                        <span>After lock-in, nominee eligible for voluntary member contributions</span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Important Disclaimer */}
+          <div className="mt-16 bg-yellow-50 border border-yellow-200 rounded-xl p-6 md:p-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Important Disclaimer</h3>
+            <ul className="space-y-2 text-gray-700 text-sm">
+              <li className="flex items-start">
+                <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
+                <span>PWT does <strong>not</strong> assure or guarantee any fixed amount. Assistance depends on voluntary cooperation of members.</span>
+              </li>
+              <li className="flex items-start">
+                <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
+                <span>No claim is enforceable as a legal right or debt. PWT is not an insurance or investment entity.</span>
+              </li>
+              <li className="flex items-start">
+                <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
+                <span>Membership terminates automatically at age <strong>65</strong>, regardless of enrollment date.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -192,7 +211,7 @@ export default function HowItWorks() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Join thousands of healthcare professionals who trust drswelfareindia for their financial security
+            Join a community of professionals who believe in mutual support. Enrollment open for registered professionals aged 60 and below.
           </p>
           <Link
             to="/join"

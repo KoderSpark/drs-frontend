@@ -34,7 +34,6 @@ export default function Contact() {
       setTimeout(() => setSubmitted(false), 3000);
     } catch (err: any) {
       console.error('Contact submit error', err);
-      // show failure briefly
       alert(err?.message || 'Failed to send message');
     }
   };
@@ -45,7 +44,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Get in touch with our team for any questions, support, or assistance
+            Get in touch with Professionals Welfare Trust for any questions, support, or assistance
           </p>
         </div>
       </section>
@@ -56,7 +55,7 @@ export default function Contact() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                Our team is here to help you with any questions about drswelfareindia membership, benefits, or support. Fill out the form and we'll get back to you within 24 hours.
+                Our team is here to help you with any questions about PWT membership, mutual support, contribution processes, or general inquiries. Fill out the form and we'll get back to you promptly.
               </p>
 
               <div className="space-y-6">
@@ -67,9 +66,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Our Office</h3>
                     <p className="text-gray-600">
-                      123 Healthcare Avenue<br />
-                      Medical District<br />
-                      City 12345
+                      Hyderabad<br />
+                      Telangana State<br />
+                      India
                     </p>
                   </div>
                 </div>
@@ -80,8 +79,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">+1 (555) 123-4568</p>
+                    <p className="text-gray-600">Contact us via the form or email below</p>
                   </div>
                 </div>
 
@@ -91,7 +89,6 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">drswelfareindia@gmail.com</p>
                     <p className="text-gray-600">drswelfareindia@gmail.com</p>
                   </div>
                 </div>
@@ -105,9 +102,6 @@ export default function Contact() {
                     <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
                     <p className="text-gray-600">Sunday: Closed</p>
-                    <p className="text-gray-600 mt-2 text-sm">
-                      Emergency support available 24/7
-                    </p>
                   </div>
                 </div>
               </div>
@@ -167,7 +161,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
 
@@ -185,9 +179,10 @@ export default function Contact() {
                     >
                       <option value="">Select a subject</option>
                       <option value="membership">Membership Inquiry</option>
-                      <option value="benefits">Benefits Information</option>
+                      <option value="contribution">Contribution Query</option>
+                      <option value="membership-status">Membership Status</option>
                       <option value="technical">Technical Support</option>
-                      <option value="claims">Claims Assistance</option>
+                      <option value="nominee">Nominee Details</option>
                       <option value="feedback">Feedback</option>
                       <option value="other">Other</option>
                     </select>
@@ -226,22 +221,22 @@ export default function Contact() {
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-blue-600 rounded-2xl p-8 md:p-12 text-white text-center">
-            <h2 className="text-3xl font-bold mb-4">Emergency Support</h2>
+            <h2 className="text-3xl font-bold mb-4">Need Urgent Help?</h2>
             <p className="text-xl text-blue-100 mb-6">
-              For urgent matters and emergencies, our dedicated support team is available 24/7
+              For urgent matters related to membership or contributions, reach out to us directly
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+15551234567"
+                href="mailto:drswelfareindia@gmail.com"
                 className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
-                Call Emergency Line
+                Email Us Directly
               </a>
               <a
-                href="mailto:drswelfareindia@gmail.com"
+                href="/terms"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
               >
-                Email Emergency Team
+                Read By-Laws
               </a>
             </div>
           </div>

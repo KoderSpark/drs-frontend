@@ -34,64 +34,64 @@ function FAQItem({ question, answer }: FAQItemProps) {
 export default function FAQ() {
   const faqs = [
     {
-      question: 'Who is eligible to join drswelfareindia?',
-      answer: 'drswelfareindia membership is open to all registered medical doctors and dental surgeons who hold valid degrees (MBBS, MD, MS, BDS, MDS, etc.) and have an active registration with their respective medical or dental council. Both practicing and retired professionals are eligible to join.',
+      question: 'What is Professionals Welfare Trust (PWT)?',
+      answer: 'PWT is a member-based mutual self-support trust — a Public Charitable & Welfare Trust (Non-Profit). It is NOT an insurance company, investment scheme, or profit-making entity. PWT coordinates voluntary contributions from members to support the nominee of a deceased member.',
     },
     {
-      question: 'What documents do I need to submit for registration?',
-      answer: 'You need to submit a valid government-issued ID proof, professional degree certificates, medical/dental council registration certificate, and a recent passport-size photograph. All documents should be clear and legible for verification purposes.',
+      question: 'Who is eligible to join PWT?',
+      answer: 'Membership is open to Indian citizens only, specifically registered professionals including: Doctors & Dentists, Chartered Accountants, Lawyers, Engineers, IT Professionals, Teachers, Healthcare Professionals, and any other category approved by the Trustees from time to time. Applicants must be aged 60 or below at the time of enrollment.',
     },
     {
-      question: 'How long does the verification process take?',
-      answer: 'The document verification process typically takes 2-3 business days. Once your documents are verified, you will receive an email confirmation with further instructions for completing your membership.',
+      question: 'Is there an age limit for membership?',
+      answer: 'Yes. Applicants must be aged 60 or below at the time of enrollment. Membership terminates automatically at age 65, regardless of the enrollment date. Coverage extends from enrollment up to age 65.',
     },
     {
-      question: 'Can I include my family members in the scheme?',
-      answer: 'Yes, drswelfareindia allows you to include up to 2 family members in your membership. Family members can be your spouse, children, or parents. Each family member will need to provide basic personal information during registration.',
+      question: 'What is the lock-in period?',
+      answer: 'A mandatory lock-in period of 12 months applies from the date of joining. No assistance or claim shall be entertained during the lock-in period. The lock-in is non-waivable under any circumstances.',
+    },
+    {
+      question: 'What kind of support does PWT provide?',
+      answer: 'PWT coordinates voluntary contributions from members to the family/nominee of a deceased member. All contributions are transferred directly from members to the nominee\'s bank account. PWT acts only as a coordinating and facilitating entity — it does not collect or hold contribution funds. Assistance may be coordinated for death due to natural causes, accidents, or critical illnesses (including cancer).',
+    },
+    {
+      question: 'Does PWT guarantee any specific amount?',
+      answer: 'No. PWT does not assure or guarantee any amount. Assistance depends entirely on the voluntary cooperation of members. No claim is enforceable as a legal right or debt. Members have no legal claim to receive any fixed or guaranteed benefit.',
+    },
+    {
+      question: 'How do contributions work?',
+      answer: 'When a member passes away, all registered members are required to contribute to the deceased member\'s nominee. Contributions are made directly to the nominee\'s bank account — PWT facilitates the coordination. Members must upload valid payment receipts via the official website or designated Google Form. Failure to contribute renders a member ineligible for future assistance.',
     },
     {
       question: 'What is a nominee and why is it required?',
-      answer: 'A nominee is the person designated to receive the benefits of your membership in case of unforeseen circumstances. Providing nominee details ensures that your benefits are transferred smoothly to your chosen beneficiary. It is mandatory to designate a nominee during registration.',
+      answer: 'A nominee is the person designated by a member to receive voluntary contributions from fellow members in case of the member\'s death. Providing nominee details (including bank account information) is mandatory during registration, as all contributions are transferred directly to the nominee\'s bank account.',
     },
     {
-      question: 'What benefits do members receive?',
-      answer: 'Members receive comprehensive financial support, emergency assistance fund access, professional liability support, medical practice support services, annual health checkup coverage, and much more. Family members also receive extended coverage including educational support and health programs.',
-    },
-    {
-      question: 'How much does membership cost?',
-      answer: 'Membership fees vary based on the coverage level and additional family members included. For detailed pricing information, please contact our support team or visit our office. We offer flexible payment options to suit your needs.',
-    },
-    {
-      question: 'Is there a renewal process for membership?',
-      answer: 'Yes, drswelfareindia memberships are renewed annually. Members will receive renewal notifications 30 days before their membership expires, along with instructions for completing the renewal process online or through our office.',
-    },
-    {
-      question: 'Can I change my nominee details after registration?',
-      answer: 'Yes, you can update your nominee details at any time by logging into your member portal or by contacting our support team. Changes typically take effect within 24-48 hours after verification.',
-    },
-    {
-      question: 'What happens if I need to make a claim?',
-      answer: 'If you need to make a claim, simply contact our support team or submit a claim request through your member portal. Our dedicated claims processing team will guide you through the process and ensure quick resolution.',
-    },
-    {
-      question: 'Is there a waiting period for benefits to activate?',
-      answer: 'No, your membership benefits become active immediately upon payment confirmation. You can start accessing all member services and support from day one.',
+      question: 'What are the exclusions for assistance?',
+      answer: 'No assistance shall be provided where: (1) Death involves suicide or homicide allegations involving the nominee, (2) Criminal proceedings or misrepresentation exists, (3) The member had not completed the lock-in period, (4) The member had not fulfilled contribution obligations, or (5) There is fraud or suppression of facts. The final decision rests solely with the Trustees.',
     },
     {
       question: 'Can I cancel my membership?',
-      answer: 'Yes, you can cancel your membership at any time. However, please note that membership fees are non-refundable. For cancellation requests, please contact our support team who will assist you with the process.',
+      answer: 'Yes, participation may be discontinued at any time, subject to terms and conditions. However, membership fees are non-refundable, and no claim or refund shall arise after termination. Voluntary withdrawals may rejoin after fulfilling all outstanding financial obligations.',
     },
     {
-      question: 'How do I contact support if I have questions?',
-      answer: 'Our support team is available 24/7 to assist you. You can reach us via phone at +1 (555) 123-4567, email at drswelfareindia@gmail.com, or through the contact form on our Contact Us page. We typically respond within 24 hours.',
+      question: 'What happens if I don\'t contribute when required?',
+      answer: 'Failure to make a contribution or upload proof within the stipulated period will render you ineligible for assistance. Non-cooperation or failure to contribute shall automatically suspend your membership. Membership may be reinstated upon full payment of all outstanding dues.',
     },
     {
-      question: 'Are there any age restrictions for membership?',
-      answer: 'There are no strict age restrictions for primary members. However, family members included in your plan must meet certain age criteria. Children can be covered up to 25 years of age if they are students, or 21 years otherwise.',
+      question: 'How is the sequence of assistance determined?',
+      answer: 'In case of multiple deaths, support is extended in order of date of death. If multiple deaths occur on the same date, the member with the highest average contribution ratio receives priority. PWT reserves the right to determine the final order of assistance in exceptional cases.',
     },
     {
-      question: 'What makes drswelfareindia different from other schemes?',
-      answer: 'drswelfareindia is exclusively designed for healthcare professionals by healthcare professionals. We understand the unique challenges faced by doctors and dentists, and our benefits are specifically tailored to address these needs. Our transparent operations, comprehensive coverage, and strong community support set us apart.',
+      question: 'Is membership transferable?',
+      answer: 'No. Membership is non-transferable and non-assignable. It does not create any legal or contractual right to benefits.',
+    },
+    {
+      question: 'What digital platform does PWT operate?',
+      answer: 'PWT operates a Mobile App, Website, Helpline, and Online communication systems. The platform is used for crisis alerts, information sharing, coordination of voluntary support, and professional networking. Members shall not misuse the platform — prohibited acts include false information, commercial exploitation, and abusive conduct.',
+    },
+    {
+      question: 'Which courts have jurisdiction over PWT matters?',
+      answer: 'Courts at Hyderabad, Telangana State alone shall have jurisdiction over any matters related to PWT. The Trustees\' interpretation of Rules & Bye-Laws shall be final and binding.',
     },
   ];
 
@@ -101,7 +101,7 @@ export default function FAQ() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Find answers to common questions about drswelfareindia membership, benefits, and processes
+            Find answers to common questions about Professionals Welfare Trust membership, mutual support, and processes
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@ export default function FAQ() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <p className="text-lg text-gray-600">
-              Can't find what you're looking for? Contact our support team for assistance.
+              Can't find what you're looking for? Contact our support team or read our complete <a href="/terms" className="text-blue-600 hover:underline">By-Laws</a>.
             </p>
           </div>
 
@@ -123,7 +123,7 @@ export default function FAQ() {
           <div className="mt-12 bg-blue-50 border border-blue-200 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Still Have Questions?</h3>
             <p className="text-gray-700 mb-6">
-              Our support team is here to help you with any additional questions or concerns.
+              Our support team is here to help you with any additional questions or concerns about PWT membership.
             </p>
             <a
               href="/contact"
