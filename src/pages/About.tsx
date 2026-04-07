@@ -24,7 +24,7 @@ export default function About() {
                 PWT is not an insurance company, investment scheme, or profit-making entity. It operates as a public charitable and welfare trust where members voluntarily contribute to support the families and nominees of deceased members — directly, transparently, and with full accountability.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Today, PWT serves registered professionals across India — including Doctors, Dentists, Chartered Accountants, Lawyers, Engineers, IT Professionals, Teachers, and Healthcare workers — providing them with the assurance that their professional community stands together in times of need.
+                Today, PWT serves registered medical professionals across India — including Doctors, Dentists, Dermatologists, Surgeons, Physicians, Pediatricians, Ophthalmologists, and Orthopedic Specialists — providing them with the assurance that their medical community stands together in times of need.
               </p>
             </div>
             <div>
@@ -102,7 +102,7 @@ export default function About() {
               <div>
                 <h3 className="text-xl font-semibold mb-3">Multi-Professional Community</h3>
                 <p className="text-blue-100 leading-relaxed">
-                  Open to Doctors, Dentists, CAs, Lawyers, Engineers, IT Professionals, Teachers, Healthcare workers, and any other category approved by the Trustees.
+                  Open to Doctors, Dentists, Dermatologists, Surgeons, Physicians, Pediatricians, Ophthalmologists, Orthopedic Specialists, and other registered medical professionals.
                 </p>
               </div>
             </div>

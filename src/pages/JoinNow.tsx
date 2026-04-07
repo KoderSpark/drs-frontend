@@ -352,15 +352,15 @@ export default function JoinNow() {
                   className={`w-full px-4 py-2 border ${errors.qualification ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 >
                   <option value="">Select Profession</option>
-                  <option value="Doctor">Doctor</option>
-                  <option value="Dentist">Dentist</option>
-                  <option value="Chartered Accountant">Chartered Accountant</option>
-                  <option value="Lawyer">Lawyer</option>
-                  <option value="Engineer">Engineer</option>
-                  <option value="IT Professional">IT Professional</option>
-                  <option value="Teacher">Teacher</option>
-                  <option value="Healthcare Professional">Healthcare Professional</option>
-                  <option value="Other">Other</option>
+                  <option value="Doctor">Doctor (MBBS, MD, MS)</option>
+                  <option value="Dentist">Dentist (BDS, MDS)</option>
+                  <option value="Dermatologist">Dermatologist</option>
+                  <option value="Surgeon">Surgeon</option>
+                  <option value="Physician">Physician</option>
+                  <option value="Pediatrician">Pediatrician</option>
+                  <option value="Ophthalmologist">Ophthalmologist</option>
+                  <option value="Orthopedic Specialist">Orthopedic Specialist</option>
+                  <option value="Other Medical Professional">Other Medical Professional</option>
                 </select>
                 {errors.qualification && <p className="text-red-500 text-sm mt-1">{errors.qualification}</p>}
               </div>

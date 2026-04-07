@@ -54,7 +54,7 @@ export default function Home() {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <CheckCircle className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={24} />
-                  <span className="text-gray-700">Open to Doctors, Dentists, CAs, Lawyers, Engineers, IT Professionals, Teachers &amp; Healthcare Professionals</span>
+                  <span className="text-gray-700">Open to Doctors, Dentists, Dermatologists, Surgeons, Pediatricians, Ophthalmologists &amp; other Medical Professionals</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={24} />
@@ -108,7 +108,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Professional Community</h3>
               <p className="text-gray-600 leading-relaxed">
-                Join a network of doctors, CAs, lawyers, engineers, IT professionals, teachers &amp; healthcare workers who support each other.
+                Join a network of doctors, dentists, dermatologists, surgeons, pediatricians &amp; other medical professionals who support each other.
               </p>
             </div>
 

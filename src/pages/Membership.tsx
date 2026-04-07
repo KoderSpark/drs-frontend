@@ -164,39 +164,39 @@ export default function Membership() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Who Can Join?</h3>
-                <p className="text-sm text-gray-600 mb-3">Membership is open to Indian citizens only — registered professionals in the following categories:</p>
+                <p className="text-sm text-gray-600 mb-3">Membership is open to Indian citizens only — registered medical and dental professionals in the following categories:</p>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Doctors &amp; Dentists</span>
+                    <span>Doctors (MBBS, MD, MS)</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Chartered Accountants</span>
+                    <span>Dentists (BDS, MDS)</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Lawyers</span>
+                    <span>Dermatologists</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Engineers</span>
+                    <span>Surgeons &amp; Physicians</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>IT Professionals</span>
+                    <span>Pediatricians</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Teachers</span>
+                    <span>Ophthalmologists</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Healthcare Professionals</span>
+                    <span>Orthopedic Specialists</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Any other category approved by the Trustees</span>
+                    <span>Other Registered Medical Professionals</span>
                   </li>
                 </ul>
               </div>

@@ -68,16 +68,16 @@ export default function Terms() {
             <div className="space-y-5 text-gray-700">
               <div>
                 <h3 className="font-semibold text-gray-900">1. ELIGIBILITY</h3>
-                <p className="mt-1 pl-4 text-sm">Membership is open only to the following registered professionals (Indian citizens only):</p>
+                <p className="mt-1 pl-4 text-sm">Membership is open only to the following registered medical and dental professionals (Indian citizens only):</p>
                 <ul className="pl-8 mt-2 space-y-1 text-sm list-disc">
-                  <li>Doctors &amp; Dentists</li>
-                  <li>Chartered Accountants</li>
-                  <li>Lawyers</li>
-                  <li>Engineers</li>
-                  <li>IT Professionals</li>
-                  <li>Teachers</li>
-                  <li>Health care professionals</li>
-                  <li>Any other category as may be approved by the Trustees from time to time</li>
+                  <li>Doctors (MBBS, MD, MS)</li>
+                  <li>Dentists (BDS, MDS)</li>
+                  <li>Dermatologists</li>
+                  <li>Surgeons &amp; Physicians</li>
+                  <li>Pediatricians</li>
+                  <li>Ophthalmologists</li>
+                  <li>Orthopedic Specialists</li>
+                  <li>Other Registered Medical Professionals</li>
                 </ul>
               </div>
               <div>

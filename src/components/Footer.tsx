@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Stethoscope className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">drswelfareindia</span>
+              <span className="text-xl font-bold">drswelfare</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-2">
               Professionals Welfare Trust (PWT) — A member-based mutual self-support trust for registered professionals.

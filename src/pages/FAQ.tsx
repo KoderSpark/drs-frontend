@@ -39,7 +39,7 @@ export default function FAQ() {
     },
     {
       question: 'Who is eligible to join PWT?',
-      answer: 'Membership is open to Indian citizens only, specifically registered professionals including: Doctors & Dentists, Chartered Accountants, Lawyers, Engineers, IT Professionals, Teachers, Healthcare Professionals, and any other category approved by the Trustees from time to time. Applicants must be aged 60 or below at the time of enrollment.',
+      answer: 'Membership is open to Indian citizens only, specifically registered medical and dental professionals including: Doctors (MBBS, MD, MS), Dentists (BDS, MDS), Dermatologists, Surgeons & Physicians, Pediatricians, Ophthalmologists, Orthopedic Specialists, and other registered medical professionals. Applicants must be aged 60 or below at the time of enrollment.',
     },
     {
       question: 'Is there an age limit for membership?',
