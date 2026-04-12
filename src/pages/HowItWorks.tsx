@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Join Professionals Welfare Trust in simple steps and become part of a voluntary mutual self-support community of doctors
+            Join Drs Welfare in simple steps and become part of a voluntary mutual self-support community of doctors
           </p>
         </div>
       </section>

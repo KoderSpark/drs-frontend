@@ -44,7 +44,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Get in touch with Professionals Welfare Trust for any questions, support, or assistance
+            Get in touch with Drs Welfare for any questions, support, or assistance
           </p>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function Contact() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                Our team is here to help you with any questions about PWT membership, mutual support, contribution processes, or general inquiries. Fill out the form and we'll get back to you promptly.
+                Our team is here to help you with any questions about Drs Welfare membership, mutual support, contribution processes, or general inquiries. Fill out the form and we'll get back to you promptly.
               </p>
 
               <div className="space-y-6">

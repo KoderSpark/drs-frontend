@@ -9,10 +9,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Stethoscope className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">drswelfare</span>
+              <span className="text-xl font-bold">Drs Welfare</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-2">
-              Professionals Welfare Trust (PWT) — A member-based mutual self-support trust for registered doctors.
+              Drs Welfare — A member-based mutual self-support platform for registered doctors, organized under Professionals Welfare Trust (PWT).
             </p>
             <p className="text-gray-500 text-xs">
               Public Charitable &amp; Welfare Trust (Non-Profit)
@@ -24,7 +24,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                  About PWT
+                  About Drs Welfare
                 </Link>
               </li>
               <li>

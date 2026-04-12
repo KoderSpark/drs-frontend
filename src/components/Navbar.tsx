@@ -15,7 +15,7 @@ export default function Navbar() {
 
   const publicLinks = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About PWT' },
+    { path: '/about', label: 'About Drs Welfare' },
     { path: '/how-it-works', label: 'How It Works' },
     { path: '/membership', label: 'Membership Details' },
     { path: '/faq', label: 'FAQ' },
@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center space-x-2">
             <Stethoscope className="h-8 w-8 text-blue-600" />
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-blue-600 leading-tight">drswelfare</span>
+              <span className="text-xl font-bold text-blue-600 leading-tight">Drs Welfare</span>
               <span className="text-[10px] text-gray-500 leading-tight">An initiative of Professionals Welfare Trust</span>
             </div>
           </Link>

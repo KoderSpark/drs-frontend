@@ -34,11 +34,11 @@ function FAQItem({ question, answer }: FAQItemProps) {
 export default function FAQ() {
   const faqs = [
     {
-      question: 'What is Professionals Welfare Trust (PWT)?',
-      answer: 'PWT is a member-based mutual self-support trust — a Public Charitable & Welfare Trust (Non-Profit). It is NOT an insurance company, investment scheme, or profit-making entity. PWT coordinates voluntary contributions from members to support the nominee of a deceased member.',
+      question: 'What is Drs Welfare?',
+      answer: 'Drs Welfare is a member-based mutual self-support platform exclusively for registered doctors. It is operated by the Professionals Welfare Trust (PWT) — a Public Charitable & Welfare Trust (Non-Profit). It is NOT an insurance company, investment scheme, or profit-making entity.',
     },
     {
-      question: 'Who is eligible to join PWT?',
+      question: 'Who is eligible to join Drs Welfare?',
       answer: 'Membership is open to Indian citizens only, specifically registered medical and dental doctors including: Doctors (MBBS, MD, MS), Dentists (BDS, MDS), Dermatologists, Surgeons & Physicians, Pediatricians, Ophthalmologists, Orthopedic Specialists, and other registered medical doctors. Applicants must be aged 60 or below at the time of enrollment.',
     },
     {
@@ -101,7 +101,7 @@ export default function FAQ() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Find answers to common questions about Professionals Welfare Trust membership, mutual support, and processes
+            Find answers to common questions about Drs Welfare membership, mutual support, and processes
           </p>
         </div>
       </section>
