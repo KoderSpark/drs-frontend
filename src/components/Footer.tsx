@@ -12,7 +12,7 @@ export default function Footer() {
               <span className="text-xl font-bold">drswelfare</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-2">
-              Doctors Welfare Trust (DWT) — A member-based mutual self-support trust for registered doctors.
+              Professionals Welfare Trust (PWT) — A member-based mutual self-support trust for registered doctors.
             </p>
             <p className="text-gray-500 text-xs">
               Public Charitable &amp; Welfare Trust (Non-Profit)
@@ -24,7 +24,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                  About DWT
+                  About PWT
                 </Link>
               </li>
               <li>
@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-6 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Doctors Welfare Trust (DWT). All rights reserved. |
+            &copy; {new Date().getFullYear()} Professionals Welfare Trust (PWT). All rights reserved. |
             <Link to="/terms" className="hover:text-blue-400 transition-colors ml-1">By-Laws</Link> |
             <Link to="/contact" className="hover:text-blue-400 transition-colors ml-1">Contact Us</Link>
           </p>

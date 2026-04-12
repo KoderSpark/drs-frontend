@@ -20,7 +20,7 @@ export default function Membership() {
               How Mutual Support Works
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              DWT coordinates voluntary contributions from members to the nominee of a deceased member — directly and transparently
+              PWT coordinates voluntary contributions from members to the nominee of a deceased member — directly and transparently
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function Membership() {
               <Heart className="text-blue-600 mb-4" size={40} />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Direct Contributions</h3>
               <p className="text-gray-700">
-                All contributions are transferred directly from members to the nominee's bank account. DWT is not a financial intermediary.
+                All contributions are transferred directly from members to the nominee's bank account. PWT is not a financial intermediary.
               </p>
             </div>
 
@@ -148,7 +148,7 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
-                    <span>DWT does <strong>not</strong> guarantee any amount — assistance depends on voluntary cooperation</span>
+                    <span>PWT does <strong>not</strong> guarantee any amount — assistance depends on voluntary cooperation</span>
                   </li>
                   <li className="flex items-start">
                     <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />

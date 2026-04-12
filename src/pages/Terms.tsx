@@ -13,7 +13,7 @@ export default function Terms() {
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-2">BY-LAWS</h1>
           <p className="text-blue-200 text-lg font-semibold">OF</p>
-          <h2 className="text-2xl font-bold mt-1 mb-3">DOCTORS WELFARE TRUST (DWT)</h2>
+          <h2 className="text-2xl font-bold mt-1 mb-3">PROFESSIONALS WELFARE TRUST (PWT)</h2>
           <p className="text-blue-100 text-sm">A Member-Based Mutual Self Support Trust</p>
           <p className="text-blue-100 text-sm">(Public Charitable &amp; Welfare Trust – Non-Profit)</p>
           <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm">
@@ -26,7 +26,7 @@ export default function Terms() {
 
           {/* Preamble */}
           <div className="border-l-4 border-blue-600 pl-6 bg-blue-50 py-4 rounded-r-lg">
-            <h2 className="text-xl font-bold text-blue-800 mb-3">RULES &amp; BYE-LAWS OF DOCTORS WELFARE TRUST (DWT)</h2>
+            <h2 className="text-xl font-bold text-blue-800 mb-3">RULES &amp; BYE-LAWS OF PROFESSIONALS WELFARE TRUST (PWT)</h2>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
               These Rules &amp; Bye-Laws govern membership, conduct, mutual assistance, digital platform usage, trustee powers,
               disciplinary mechanisms, and administrative procedures of the Trust. They shall be read in conjunction with the Trust
@@ -45,13 +45,13 @@ export default function Terms() {
             <div className="space-y-4 text-gray-700">
               <div>
                 <h3 className="font-semibold text-gray-900">1. SHORT TITLE</h3>
-                <p className="mt-1 pl-4">These Rules shall be called <strong>"Rules &amp; Bye-Laws of Doctors Welfare Trust (DWT)"</strong>.</p>
+                <p className="mt-1 pl-4">These Rules shall be called <strong>"Rules &amp; Bye-Laws of Professionals Welfare Trust (PWT)"</strong>.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">2. DEFINITIONS</h3>
                 <p className="mt-1 pl-4 text-sm text-gray-600 mb-2">Unless repugnant to the context:</p>
                 <ul className="pl-4 space-y-1 text-sm">
-                  <li><span className="font-medium">(a) "Trust"</span> means Doctors Welfare Trust (DWT).</li>
+                  <li><span className="font-medium">(a) "Trust"</span> means Professionals Welfare Trust (PWT).</li>
                   <li><span className="font-medium">(b) "Trustees"</span> means the duly appointed Trustees of the Trust.</li>
                   <li><span className="font-medium">(c) "Member"</span> means a person duly admitted as a registered member.</li>
                   <li><span className="font-medium">(d) "Nominee"</span> means the person nominated by a member.</li>
@@ -180,9 +180,9 @@ export default function Terms() {
                 <h3 className="font-semibold text-gray-900 text-base">1. DIRECT CONTRIBUTION CLAUSE</h3>
                 <ul className="pl-4 mt-1 space-y-1 list-decimal">
                   <li>All contributions are made directly from members to the nominees' bank accounts.</li>
-                  <li>DWT acts only as a coordinating and facilitating entity — not as a financial intermediary.</li>
+                  <li>PWT acts only as a coordinating and facilitating entity — not as a financial intermediary.</li>
                   <li>Members have no legal claim to receive any fixed or guaranteed benefit.</li>
-                  <li>DWT bears no financial liability for contributions, delays, or non-receipt of support.</li>
+                  <li>PWT bears no financial liability for contributions, delays, or non-receipt of support.</li>
                 </ul>
               </div>
               <div>
@@ -198,14 +198,14 @@ export default function Terms() {
                 <ul className="pl-4 mt-1 space-y-1 list-decimal">
                   <li>In case of multiple deaths of members, support shall be extended in order of date of death.</li>
                   <li>If multiple deaths occur on the same date, the member with the highest average contribution ratio shall receive priority.</li>
-                  <li>DWT reserves the right to determine the final order of assistance in exceptional cases.</li>
+                  <li>PWT reserves the right to determine the final order of assistance in exceptional cases.</li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 text-base">4. ERRONEOUS TRANSFERS</h3>
                 <ul className="pl-4 mt-1 space-y-1 list-decimal">
                   <li>In the event of an erroneous or excess transfer, the nominee shall be obligated to refund the excess amount upon verification.</li>
-                  <li>DWT shall facilitate communication in good faith but shall not bear any legal responsibility for the return of such funds.</li>
+                  <li>PWT shall facilitate communication in good faith but shall not bear any legal responsibility for the return of such funds.</li>
                 </ul>
               </div>
             </div>
@@ -273,7 +273,7 @@ export default function Terms() {
             <div className="text-sm text-gray-700 space-y-2">
               <p>These Rules may be amended by a Trustee Resolution, provided Trust nature is unchanged.</p>
               <ul className="pl-4 space-y-1 list-decimal">
-                <li>DWT reserves the right to modify, amend, or replace any rules at any time to meet operational or legal requirements.</li>
+                <li>PWT reserves the right to modify, amend, or replace any rules at any time to meet operational or legal requirements.</li>
                 <li>The version of the rules uploaded on the official website shall be deemed final and legally binding.</li>
               </ul>
             </div>
@@ -300,7 +300,7 @@ export default function Terms() {
               <ArrowLeft size={16} /> Back to Home
             </Link>
             <Link to="/join" className="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 text-sm font-semibold">
-              Join DWT
+              Join PWT
             </Link>
           </div>
 

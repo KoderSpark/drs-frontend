@@ -17,7 +17,7 @@ export default function Home() {
               Doctors Supporting Doctors Together
             </h1>
             <p className="text-xl mb-8 text-white">
-              Join Doctors Welfare Trust (DWT) — A member-based mutual self-support trust designed exclusively for registered doctors. Not an insurance or investment entity.
+              Join the Professionals Welfare Trust (PWT) drswelfare initiative — A member-based mutual self-support trust designed exclusively for registered doctors. Not an insurance or investment entity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -84,7 +84,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Doctors Welfare Trust?
+              Why Choose Professionals Welfare Trust?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               A voluntary, member-driven mutual support model where doctors help each other through difficult times
@@ -98,7 +98,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Mutual Self-Support</h3>
               <p className="text-gray-600 leading-relaxed">
-                Members voluntarily contribute to support the family/nominee of a deceased member. DWT coordinates — it does not collect or hold funds.
+                Members voluntarily contribute to support the family/nominee of a deceased member. PWT coordinates — it does not collect or hold funds.
               </p>
             </div>
 

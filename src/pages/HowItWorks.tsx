@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Join Doctors Welfare Trust in simple steps and become part of a voluntary mutual self-support community of doctors
+            Join Professionals Welfare Trust in simple steps and become part of a voluntary mutual self-support community of doctors
           </p>
         </div>
       </section>
@@ -190,11 +190,11 @@ export default function HowItWorks() {
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
-                <span>DWT does <strong>not</strong> assure or guarantee any fixed amount. Assistance depends on voluntary cooperation of members.</span>
+                <span>PWT does <strong>not</strong> assure or guarantee any fixed amount. Assistance depends on voluntary cooperation of members.</span>
               </li>
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
-                <span>No claim is enforceable as a legal right or debt. DWT is not an insurance or investment entity.</span>
+                <span>No claim is enforceable as a legal right or debt. PWT is not an insurance or investment entity.</span>
               </li>
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
