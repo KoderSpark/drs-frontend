@@ -8,7 +8,7 @@ export default function Membership() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Membership Details</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Voluntary membership in a mutual self-support trust for registered professionals — benefits strictly restricted to registered members only
+            Voluntary membership in a mutual self-support trust for registered doctors — benefits strictly restricted to registered members only
           </p>
         </div>
       </section>
@@ -20,7 +20,7 @@ export default function Membership() {
               How Mutual Support Works
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              PWT coordinates voluntary contributions from members to the nominee of a deceased member — directly and transparently
+              DWT coordinates voluntary contributions from members to the nominee of a deceased member — directly and transparently
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function Membership() {
               <Heart className="text-blue-600 mb-4" size={40} />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Direct Contributions</h3>
               <p className="text-gray-700">
-                All contributions are transferred directly from members to the nominee's bank account. PWT is not a financial intermediary.
+                All contributions are transferred directly from members to the nominee's bank account. DWT is not a financial intermediary.
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export default function Membership() {
               <Star className="text-blue-600 mb-4" size={40} />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">App-Based Coordination</h3>
               <p className="text-gray-700">
-                Digital platform for crisis alerts, information sharing, coordination of support, and professional networking.
+                Digital platform for crisis alerts, information sharing, coordination of support, and doctor networking.
               </p>
             </div>
           </div>
@@ -148,7 +148,7 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
-                    <span>PWT does <strong>not</strong> guarantee any amount — assistance depends on voluntary cooperation</span>
+                    <span>DWT does <strong>not</strong> guarantee any amount — assistance depends on voluntary cooperation</span>
                   </li>
                   <li className="flex items-start">
                     <AlertTriangle className="mr-3 flex-shrink-0 mt-1 text-yellow-300" size={20} />
@@ -164,7 +164,7 @@ export default function Membership() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Who Can Join?</h3>
-                <p className="text-sm text-gray-600 mb-3">Membership is open to Indian citizens only — registered medical and dental professionals in the following categories:</p>
+                <p className="text-sm text-gray-600 mb-3">Membership is open to Indian citizens only — registered medical and dental doctors in the following categories:</p>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
@@ -196,7 +196,7 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Other Registered Medical Professionals</span>
+                    <span>Other Registered Medical Doctors</span>
                   </li>
                 </ul>
               </div>
@@ -239,7 +239,7 @@ export default function Membership() {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Join?</h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Become part of a professional community built on voluntary mutual support. Read our <Link to="/terms" className="text-blue-600 hover:underline">By-Laws</Link> before applying.
+              Become part of a doctors community built on voluntary mutual support. Read our <Link to="/terms" className="text-blue-600 hover:underline">By-Laws</Link> before applying.
             </p>
             <Link
               to="/join"

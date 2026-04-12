@@ -34,12 +34,12 @@ function FAQItem({ question, answer }: FAQItemProps) {
 export default function FAQ() {
   const faqs = [
     {
-      question: 'What is Professionals Welfare Trust (PWT)?',
-      answer: 'PWT is a member-based mutual self-support trust — a Public Charitable & Welfare Trust (Non-Profit). It is NOT an insurance company, investment scheme, or profit-making entity. PWT coordinates voluntary contributions from members to support the nominee of a deceased member.',
+      question: 'What is Doctors Welfare Trust (DWT)?',
+      answer: 'DWT is a member-based mutual self-support trust — a Public Charitable & Welfare Trust (Non-Profit). It is NOT an insurance company, investment scheme, or profit-making entity. DWT coordinates voluntary contributions from members to support the nominee of a deceased member.',
     },
     {
-      question: 'Who is eligible to join PWT?',
-      answer: 'Membership is open to Indian citizens only, specifically registered medical and dental professionals including: Doctors (MBBS, MD, MS), Dentists (BDS, MDS), Dermatologists, Surgeons & Physicians, Pediatricians, Ophthalmologists, Orthopedic Specialists, and other registered medical professionals. Applicants must be aged 60 or below at the time of enrollment.',
+      question: 'Who is eligible to join DWT?',
+      answer: 'Membership is open to Indian citizens only, specifically registered medical and dental doctors including: Doctors (MBBS, MD, MS), Dentists (BDS, MDS), Dermatologists, Surgeons & Physicians, Pediatricians, Ophthalmologists, Orthopedic Specialists, and other registered medical doctors. Applicants must be aged 60 or below at the time of enrollment.',
     },
     {
       question: 'Is there an age limit for membership?',
@@ -50,16 +50,16 @@ export default function FAQ() {
       answer: 'A mandatory lock-in period of 12 months applies from the date of joining. No assistance or claim shall be entertained during the lock-in period. The lock-in is non-waivable under any circumstances.',
     },
     {
-      question: 'What kind of support does PWT provide?',
-      answer: 'PWT coordinates voluntary contributions from members to the family/nominee of a deceased member. All contributions are transferred directly from members to the nominee\'s bank account. PWT acts only as a coordinating and facilitating entity — it does not collect or hold contribution funds. Assistance may be coordinated for death due to natural causes, accidents, or critical illnesses (including cancer).',
+      question: 'What kind of support does DWT provide?',
+      answer: 'DWT coordinates voluntary contributions from members to the family/nominee of a deceased member. All contributions are transferred directly from members to the nominee\'s bank account. DWT acts only as a coordinating and facilitating entity — it does not collect or hold contribution funds. Assistance may be coordinated for death due to natural causes, accidents, or critical illnesses (including cancer).',
     },
     {
-      question: 'Does PWT guarantee any specific amount?',
-      answer: 'No. PWT does not assure or guarantee any amount. Assistance depends entirely on the voluntary cooperation of members. No claim is enforceable as a legal right or debt. Members have no legal claim to receive any fixed or guaranteed benefit.',
+      question: 'Does DWT guarantee any specific amount?',
+      answer: 'No. DWT does not assure or guarantee any amount. Assistance depends entirely on the voluntary cooperation of members. No claim is enforceable as a legal right or debt. Members have no legal claim to receive any fixed or guaranteed benefit.',
     },
     {
       question: 'How do contributions work?',
-      answer: 'When a member passes away, all registered members are required to contribute to the deceased member\'s nominee. Contributions are made directly to the nominee\'s bank account — PWT facilitates the coordination. Members must upload valid payment receipts via the official website or designated Google Form. Failure to contribute renders a member ineligible for future assistance.',
+      answer: 'When a member passes away, all registered members are required to contribute to the deceased member\'s nominee. Contributions are made directly to the nominee\'s bank account — DWT facilitates the coordination. Members must upload valid payment receipts via the official website or designated Google Form. Failure to contribute renders a member ineligible for future assistance.',
     },
     {
       question: 'What is a nominee and why is it required?',
@@ -79,19 +79,19 @@ export default function FAQ() {
     },
     {
       question: 'How is the sequence of assistance determined?',
-      answer: 'In case of multiple deaths, support is extended in order of date of death. If multiple deaths occur on the same date, the member with the highest average contribution ratio receives priority. PWT reserves the right to determine the final order of assistance in exceptional cases.',
+      answer: 'In case of multiple deaths, support is extended in order of date of death. If multiple deaths occur on the same date, the member with the highest average contribution ratio receives priority. DWT reserves the right to determine the final order of assistance in exceptional cases.',
     },
     {
       question: 'Is membership transferable?',
       answer: 'No. Membership is non-transferable and non-assignable. It does not create any legal or contractual right to benefits.',
     },
     {
-      question: 'What digital platform does PWT operate?',
-      answer: 'PWT operates a Mobile App, Website, Helpline, and Online communication systems. The platform is used for crisis alerts, information sharing, coordination of voluntary support, and professional networking. Members shall not misuse the platform — prohibited acts include false information, commercial exploitation, and abusive conduct.',
+      question: 'What digital platform does DWT operate?',
+      answer: 'DWT operates a Mobile App, Website, Helpline, and Online communication systems. The platform is used for crisis alerts, information sharing, coordination of voluntary support, and doctor networking. Members shall not misuse the platform — prohibited acts include false information, commercial exploitation, and abusive conduct.',
     },
     {
-      question: 'Which courts have jurisdiction over PWT matters?',
-      answer: 'Courts at Hyderabad, Telangana State alone shall have jurisdiction over any matters related to PWT. The Trustees\' interpretation of Rules & Bye-Laws shall be final and binding.',
+      question: 'Which courts have jurisdiction over DWT matters?',
+      answer: 'Courts at Hyderabad, Telangana State alone shall have jurisdiction over any matters related to DWT. The Trustees\' interpretation of Rules & Bye-Laws shall be final and binding.',
     },
   ];
 
@@ -101,7 +101,7 @@ export default function FAQ() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Find answers to common questions about Professionals Welfare Trust membership, mutual support, and processes
+            Find answers to common questions about Doctors Welfare Trust membership, mutual support, and processes
           </p>
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function FAQ() {
           <div className="mt-12 bg-blue-50 border border-blue-200 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Still Have Questions?</h3>
             <p className="text-gray-700 mb-6">
-              Our support team is here to help you with any additional questions or concerns about PWT membership.
+              Our support team is here to help you with any additional questions or concerns about DWT membership.
             </p>
             <a
               href="/contact"

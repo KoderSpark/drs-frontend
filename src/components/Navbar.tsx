@@ -15,7 +15,7 @@ export default function Navbar() {
 
   const publicLinks = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About PWT' },
+    { path: '/about', label: 'About DWT' },
     { path: '/how-it-works', label: 'How It Works' },
     { path: '/membership', label: 'Membership Details' },
     { path: '/faq', label: 'FAQ' },
@@ -43,18 +43,18 @@ export default function Navbar() {
             <Stethoscope className="h-8 w-8 text-blue-600" />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-blue-600 leading-tight">drswelfare</span>
-              <span className="text-[10px] text-gray-500 leading-tight">Professionals Welfare Trust</span>
+              <span className="text-[10px] text-gray-500 leading-tight">Doctors Welfare Trust</span>
             </div>
           </Link>
 
           {/* Navigation Items - Center */}
-          <div className="hidden md:flex items-center space-x-4 flex-1 justify-center">
+          <div className="hidden xl:flex items-center space-x-1 lg:space-x-2 flex-1 justify-center">
             {activeLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-sm px-2 py-1 rounded ${
+                  `text-sm whitespace-nowrap px-2 py-1 rounded ${
                     isActive ? 'text-blue-600 font-semibold' : 'text-black hover:text-blue-600'
                   } transition-colors`
                 }
@@ -65,7 +65,7 @@ export default function Navbar() {
           </div>
 
           {/* Action Buttons - Right */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-4">
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}
@@ -102,7 +102,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-black ml-auto"
+            className="xl:hidden text-black ml-auto"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -110,7 +110,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="xl:hidden bg-white border-t">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {activeLinks.map((link) => (
               <NavLink

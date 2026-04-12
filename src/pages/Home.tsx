@@ -7,17 +7,17 @@ export default function Home() {
       <section 
         className="relative bg-cover bg-center bg-no-repeat text-white py-32" 
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1631815587646-b85a1bb027e1?q=80&w=2069&auto=format&fit=crop')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/community_bg.png')`,
           backgroundAttachment: 'fixed'
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Professionals Supporting Professionals Together
+              Doctors Supporting Doctors Together
             </h1>
             <p className="text-xl mb-8 text-white">
-              Join Professionals Welfare Trust (PWT) — A member-based mutual self-support trust designed exclusively for registered professionals. Not an insurance or investment entity.
+              Join Doctors Welfare Trust (DWT) — A member-based mutual self-support trust designed exclusively for registered doctors. Not an insurance or investment entity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -42,19 +42,19 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Professional Team"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop"
+                alt="Medical tools"
                 className="rounded-lg shadow-lg"
               />
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Built by Professionals, For Professionals
+                Built by Doctors, For Doctors
               </h2>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <CheckCircle className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={24} />
-                  <span className="text-gray-700">Open to Doctors, Dentists, Dermatologists, Surgeons, Pediatricians, Ophthalmologists &amp; other Medical Professionals</span>
+                  <span className="text-gray-700">Open to Doctors, Dentists, Dermatologists, Surgeons, Pediatricians, Ophthalmologists &amp; other Medical Doctors</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={24} />
@@ -84,10 +84,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Professionals Welfare Trust?
+              Why Choose Doctors Welfare Trust?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A voluntary, member-driven mutual support model where professionals help each other through difficult times
+              A voluntary, member-driven mutual support model where doctors help each other through difficult times
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Mutual Self-Support</h3>
               <p className="text-gray-600 leading-relaxed">
-                Members voluntarily contribute to support the family/nominee of a deceased member. PWT coordinates — it does not collect or hold funds.
+                Members voluntarily contribute to support the family/nominee of a deceased member. DWT coordinates — it does not collect or hold funds.
               </p>
             </div>
 
@@ -106,9 +106,9 @@ export default function Home() {
               <div className="bg-blue-600 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
                 <Users className="text-white" size={28} />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Professional Community</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Doctors Community</h3>
               <p className="text-gray-600 leading-relaxed">
-                Join a network of doctors, dentists, dermatologists, surgeons, pediatricians &amp; other medical professionals who support each other.
+                Join a network of doctors, dentists, dermatologists, surgeons, pediatricians &amp; other medical doctors who support each other.
               </p>
             </div>
 
@@ -128,10 +128,10 @@ export default function Home() {
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Join Our Community of Professionals?
+            Ready to Join Our Community of Doctors?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Take the first step towards mutual support. Membership is open to all registered professionals aged 60 or below (Indian citizens only).
+            Take the first step towards mutual support. Membership is open to all registered doctors aged 60 or below (Indian citizens only).
           </p>
           <Link
             to="/join"

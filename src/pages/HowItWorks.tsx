@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Join Professionals Welfare Trust in simple steps and become part of a voluntary mutual self-support community of professionals
+            Join Doctors Welfare Trust in simple steps and become part of a voluntary mutual self-support community of doctors
           </p>
         </div>
       </section>
@@ -18,7 +18,7 @@ export default function HowItWorks() {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">Simple Process, Meaningful Support</h2>
             <p className="text-gray-600 text-center max-w-2xl mx-auto">
-              Our streamlined process ensures you can become a registered member and join a community of professionals working together for mutual welfare
+              Our streamlined process ensures you can become a registered member and join a community of doctors working together for mutual welfare
             </p>
           </div>
 
@@ -35,16 +35,16 @@ export default function HowItWorks() {
                       Complete Registration
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Fill out the membership application form (physical or digital) with your personal details, professional credentials, and nominee information. Membership is open to Indian citizens only, aged 60 or below.
+                      Fill out the membership application form (physical or digital) with your personal details, medical credentials, and nominee information. Membership is open to Indian citizens only, aged 60 or below.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Provide personal and professional details</span>
+                        <span>Provide personal and medical details</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Upload required documents and professional certificates</span>
+                        <span>Upload required documents and medical certificates</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
@@ -56,8 +56,8 @@ export default function HowItWorks() {
               </div>
               <div className="order-1 md:order-2">
                 <img
-                  src="https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Registration"
+                  src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=800&auto=format&fit=crop"
+                  alt="Doctor Registration"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -66,8 +66,8 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <img
-                  src="https://images.pexels.com/photos/6289065/pexels-photo-6289065.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Document Verification"
+                  src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=800&auto=format&fit=crop"
+                  alt="Medical Document Verification"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -82,12 +82,12 @@ export default function HowItWorks() {
                       Trustee Approval
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Trustees shall review your submitted documents and professional credentials. They have absolute discretion to approve or reject applications. Admission is effective only after registration in Trust records.
+                      Trustees shall review your submitted documents and medical credentials. They have absolute discretion to approve or reject applications. Admission is effective only after registration in Trust records.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Professional credentials verification</span>
+                        <span>Medical credentials verification</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
@@ -136,8 +136,8 @@ export default function HowItWorks() {
               </div>
               <div className="order-1 md:order-2">
                 <img
-                  src="https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Payment"
+                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop"
+                  alt="Membership Fee Payment"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -146,8 +146,8 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <img
-                  src="https://images.pexels.com/photos/8460157/pexels-photo-8460157.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Lock-in Period"
+                  src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop"
+                  alt="Doctor Community Support"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -190,11 +190,11 @@ export default function HowItWorks() {
             <ul className="space-y-2 text-gray-700 text-sm">
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
-                <span>PWT does <strong>not</strong> assure or guarantee any fixed amount. Assistance depends on voluntary cooperation of members.</span>
+                <span>DWT does <strong>not</strong> assure or guarantee any fixed amount. Assistance depends on voluntary cooperation of members.</span>
               </li>
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
-                <span>No claim is enforceable as a legal right or debt. PWT is not an insurance or investment entity.</span>
+                <span>No claim is enforceable as a legal right or debt. DWT is not an insurance or investment entity.</span>
               </li>
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
@@ -211,7 +211,7 @@ export default function HowItWorks() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Join a community of professionals who believe in mutual support. Enrollment open for registered professionals aged 60 and below.
+            Join a community of doctors who believe in mutual support. Enrollment open for registered doctors aged 60 and below.
           </p>
           <Link
             to="/join"
