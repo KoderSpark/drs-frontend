@@ -12,18 +12,22 @@ interface Doctor {
   email: string;
   passportPhoto: string;
   certificates: string;
+  aadharNumber: string;
+  aadharPhoto: string;
   houseAddress: string;
   clinicAddress: string;
-  nominee: {
+  nominees: {
     name: string;
     age: string;
     sex: string;
     email: string;
     phone: string;
     bankAccountNumber: string;
+    bankAccountNumberConfirm?: string;
     ifscCode: string;
     bankHolderName: string;
-  };
+    percentage: string;
+  }[];
   familyMember1?: {
     name: string;
     age: string;
@@ -49,12 +53,16 @@ export default function Profile() {
   const [successMessage, setSuccessMessage] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editedNominees, setEditedNominees] = useState<any[]>([]);
+  const [numNominees, setNumNominees] = useState(1);
   const [files, setFiles] = useState<{
     passportPhoto: File | null;
     certificates: File | null;
+    aadharPhoto: File | null;
   }>({
     passportPhoto: null,
-    certificates: null
+    certificates: null,
+    aadharPhoto: null
   });
 
   useEffect(() => {
@@ -78,6 +86,16 @@ export default function Profile() {
         // Use the specific doctor endpoint
         const data = await api.doctors.get(userId);
         setDoctor(data);
+        if (data.nominees && data.nominees.length > 0) {
+            setEditedNominees(data.nominees);
+            setNumNominees(data.nominees.length);
+        } else if (data.nominee && Object.keys(data.nominee).length > 0 && data.nominee.name) {
+            setEditedNominees([{ ...data.nominee, percentage: '100' }]);
+            setNumNominees(1);
+        } else {
+            setEditedNominees([{ name: '', age: '', sex: '', email: '', phone: '', bankAccountNumber: '', bankAccountNumberConfirm: '', ifscCode: '', bankHolderName: '', percentage: '100' }]);
+            setNumNominees(1);
+        }
         
         // Store userId for future use
         localStorage.setItem('userId', userId);
@@ -101,6 +119,27 @@ export default function Profile() {
     }
   };
 
+  const handleNumNomineesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const num = parseInt(e.target.value, 10);
+    setNumNominees(num);
+    setEditedNominees(prev => {
+      const next = [...prev];
+      while (next.length < num) {
+        next.push({ name: '', age: '', sex: '', email: '', phone: '', bankAccountNumber: '', bankAccountNumberConfirm: '', ifscCode: '', bankHolderName: '', percentage: '' });
+      }
+      if (next.length > num) next.length = num;
+      if (num === 1 && next[0]) next[0].percentage = '100';
+      return next;
+    });
+  };
+
+  const handleNomineeChange = (index: number, e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    const newNominees = [...editedNominees];
+    newNominees[index] = { ...newNominees[index], [name]: value };
+    setEditedNominees(newNominees);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!doctor) return;
@@ -115,6 +154,9 @@ export default function Profile() {
       if (files.certificates) {
         formData.append('certificates', files.certificates);
       }
+      if (files.aadharPhoto) {
+        formData.append('aadharPhoto', files.aadharPhoto);
+      }
 
       // Get all the form data
       const form = e.target as HTMLFormElement;
@@ -122,7 +164,7 @@ export default function Profile() {
       
       const fields = [
         'name', 'age', 'sex', 'qualification', 'phone', 'alternateMobile',
-        'email', 'houseAddress', 'clinicAddress'
+        'email', 'houseAddress', 'clinicAddress', 'aadharNumber'
       ];
 
       fields.forEach(field => {
@@ -131,43 +173,45 @@ export default function Profile() {
         }
       });
 
-      // Get all nominee details
-      const nomineeBankAccount = formElements.nomineeBankAccount.value;
-      const nomineeBankAccountConfirm = formElements.nomineeBankAccountConfirm.value;
-      const nomineeIFSC = formElements.nomineeIFSC.value;
-      const nomineeBankHolder = formElements.nomineeBankHolder.value;
-
-      // Always validate bank details
-      if (!nomineeBankAccount || !nomineeIFSC || !nomineeBankHolder) {
-        setError('Nominee bank details are required. Please fill in all bank fields.');
-        return;
+      // Validate and create nominees array
+      let totalPercentage = 0;
+      for (let i = 0; i < editedNominees.length; i++) {
+        const n = editedNominees[i];
+        if (!n.bankAccountNumber || !n.bankAccountNumberConfirm || !n.ifscCode || !n.bankHolderName) {
+           setError(`Nominee ${i+1} bank details are required.`);
+           setIsSubmitting(false);
+           return;
+        }
+        if (n.bankAccountNumber !== n.bankAccountNumberConfirm) {
+           setError(`Nominee ${i+1} bank account numbers do not match.`);
+           setIsSubmitting(false);
+           return;
+        }
+        const p = parseFloat(n.percentage);
+        if (isNaN(p) || p <= 0) {
+           setError(`Nominee ${i+1} percentage must be a valid positive number.`);
+           setIsSubmitting(false);
+           return;
+        }
+        totalPercentage += p;
+        n.confirmBankAccountNumber = n.bankAccountNumberConfirm; // For backend compatibility
+      }
+      if (Math.abs(totalPercentage - 100) > 0.01) {
+         setError('Total nominee percentage must equal exactly 100%.');
+         setIsSubmitting(false);
+         return;
       }
 
-      // Validate bank account confirmation
-      if (nomineeBankAccount !== nomineeBankAccountConfirm) {
-        setError('Bank account numbers do not match. Please verify and try again.');
-        return;
-      }
-
-      // Create nominee object with all details
-      const nominee = {
-        name: formElements.nomineeName.value || doctor.nominee?.name,
-        age: formElements.nomineeAge.value || doctor.nominee?.age,
-        sex: formElements.nomineeSex.value || doctor.nominee?.sex,
-        email: formElements.nomineeEmail.value || doctor.nominee?.email,
-        phone: formElements.nomineePhone.value || doctor.nominee?.phone,
-        bankAccountNumber: nomineeBankAccount,
-        confirmBankAccountNumber: nomineeBankAccountConfirm, // This will be removed by backend
-        ifscCode: nomineeIFSC,
-        bankHolderName: nomineeBankHolder,
-      };
-
-      formData.append('nominee', JSON.stringify(nominee));
+      formData.append('nominees', JSON.stringify(editedNominees));
 
       await api.doctors.updateProfile(doctor._id, formData);
       // Refresh the data after successful update
       const updatedData = await api.doctors.get(doctor._id);
       setDoctor(updatedData);
+      if (updatedData.nominees && updatedData.nominees.length > 0) {
+          setEditedNominees(updatedData.nominees);
+          setNumNominees(updatedData.nominees.length);
+      }
       setSuccessMessage('Profile updated successfully');
       setTimeout(() => setSuccessMessage(''), 3000);
       setError(''); // Clear any existing errors
@@ -283,6 +327,20 @@ export default function Profile() {
                 </div>
 
                 <div>
+                  <label htmlFor="aadharNumber" className="block text-sm font-medium text-gray-700">
+                    Aadhar Number
+                  </label>
+                  <input
+                    type="text"
+                    id="aadharNumber"
+                    name="aadharNumber"
+                    defaultValue={doctor.aadharNumber}
+                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                    disabled={!isEditing}
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="age" className="block text-sm font-medium text-gray-700">
                     Age
                   </label>
@@ -318,7 +376,7 @@ export default function Profile() {
             {/* Documents */}
             <div className="space-y-6">
               <h2 className="text-xl font-semibold text-gray-900">Documents</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Current Passport Photo</label>
                   {doctor.passportPhoto && (
@@ -367,6 +425,34 @@ export default function Profile() {
                     </div>
                   )}
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Current Aadhar Photo</label>
+                  {doctor.aadharPhoto ? (
+                    <a
+                      href={doctor.aadharPhoto}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-block text-blue-600 hover:underline"
+                    >
+                      View Current Aadhar
+                    </a>
+                  ) : (
+                    <span className="mt-2 block text-gray-500 text-sm">Not provided</span>
+                  )}
+                  {isEditing && (
+                    <div className="mt-2">
+                      <label className="block text-sm font-medium text-gray-700">Update Aadhar</label>
+                      <input
+                        type="file"
+                        name="aadharPhoto"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        onChange={handleFileChange}
+                        className="mt-1"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -406,140 +492,197 @@ export default function Profile() {
 
             {/* Nominee Details */}
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-gray-900">Nominee Details</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="nomineeName" className="block text-sm font-medium text-gray-700">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="nomineeName"
-                    name="nomineeName"
-                    defaultValue={doctor.nominee?.name}
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeAge" className="block text-sm font-medium text-gray-700">
-                    Age
-                  </label>
-                  <input
-                    type="number"
-                    id="nomineeAge"
-                    name="nomineeAge"
-                    defaultValue={doctor.nominee?.age}
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeSex" className="block text-sm font-medium text-gray-700">
-                    Sex
-                  </label>
-                  <select
-                    id="nomineeSex"
-                    name="nomineeSex"
-                    defaultValue={doctor.nominee?.sex}
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  >
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeEmail" className="block text-sm font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="nomineeEmail"
-                    name="nomineeEmail"
-                    defaultValue={doctor.nominee?.email}
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineePhone" className="block text-sm font-medium text-gray-700">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    id="nomineePhone"
-                    name="nomineePhone"
-                    defaultValue={doctor.nominee?.phone}
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeBankAccount" className="block text-sm font-medium text-gray-700">
-                    Bank Account Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="nomineeBankAccount"
-                    name="nomineeBankAccount"
-                    defaultValue={doctor.nominee?.bankAccountNumber}
-                    required
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeBankAccountConfirm" className="block text-sm font-medium text-gray-700">
-                    Confirm Bank Account Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="nomineeBankAccountConfirm"
-                    name="nomineeBankAccountConfirm"
-                    required
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeIFSC" className="block text-sm font-medium text-gray-700">
-                    IFSC Code <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="nomineeIFSC"
-                    name="nomineeIFSC"
-                    defaultValue={doctor.nominee?.ifscCode}
-                    required
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="nomineeBankHolder" className="block text-sm font-medium text-gray-700">
-                    Bank Account Holder Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="nomineeBankHolder"
-                    name="nomineeBankHolder"
-                    defaultValue={doctor.nominee?.bankHolderName}
-                    required
-                    className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
-                    disabled={!isEditing}
-                  />
-                </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                <h2 className="text-xl font-semibold text-gray-900">Nominee Details</h2>
+                {isEditing && (
+                  <div className="flex items-center mt-4 sm:mt-0">
+                    <label htmlFor="numNominees" className="text-sm font-medium text-gray-700 mr-3">
+                      Number of Nominees:
+                    </label>
+                    <select
+                      id="numNominees"
+                      value={numNominees}
+                      onChange={handleNumNomineesChange}
+                      className="border border-gray-300 rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                )}
               </div>
+
+              {editedNominees.map((nominee, idx) => (
+                <div key={idx} className={`${idx > 0 ? 'border-t-2 border-gray-200 pt-6 mt-6' : ''}`}>
+                  {numNominees > 1 && (
+                    <h4 className="font-semibold text-lg text-blue-800 mb-4 bg-blue-100 inline-block px-3 py-1 rounded-md">
+                      Nominee {idx + 1}
+                    </h4>
+                  )}
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor={`nominee_${idx}_name`} className="block text-sm font-medium text-gray-700">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id={`nominee_${idx}_name`}
+                        name="name"
+                        value={nominee.name || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_age`} className="block text-sm font-medium text-gray-700">
+                        Age
+                      </label>
+                      <input
+                        type="number"
+                        id={`nominee_${idx}_age`}
+                        name="age"
+                        value={nominee.age || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_sex`} className="block text-sm font-medium text-gray-700">
+                        Sex
+                      </label>
+                      <select
+                        id={`nominee_${idx}_sex`}
+                        name="sex"
+                        value={nominee.sex || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      >
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_email`} className="block text-sm font-medium text-gray-700">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id={`nominee_${idx}_email`}
+                        name="email"
+                        value={nominee.email || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_phone`} className="block text-sm font-medium text-gray-700">
+                        Phone
+                      </label>
+                      <input
+                        type="tel"
+                        id={`nominee_${idx}_phone`}
+                        name="phone"
+                        value={nominee.phone || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor={`nominee_${idx}_percentage`} className="block text-sm font-medium text-gray-700">
+                        Percentage Share (%) <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="number"
+                        id={`nominee_${idx}_percentage`}
+                        name="percentage"
+                        value={nominee.percentage || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        required
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 bg-yellow-50"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_bankAccount`} className="block text-sm font-medium text-gray-700">
+                        Bank Account Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id={`nominee_${idx}_bankAccount`}
+                        name="bankAccountNumber"
+                        value={nominee.bankAccountNumber || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        required
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_bankAccountConfirm`} className="block text-sm font-medium text-gray-700">
+                        Confirm Bank Account Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id={`nominee_${idx}_bankAccountConfirm`}
+                        name="bankAccountNumberConfirm"
+                        value={nominee.bankAccountNumberConfirm || nominee.bankAccountNumber || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        required
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_ifsc`} className="block text-sm font-medium text-gray-700">
+                        IFSC Code <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id={`nominee_${idx}_ifsc`}
+                        name="ifscCode"
+                        value={nominee.ifscCode || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        required
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor={`nominee_${idx}_bankHolder`} className="block text-sm font-medium text-gray-700">
+                        Bank Account Holder Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id={`nominee_${idx}_bankHolder`}
+                        name="bankHolderName"
+                        value={nominee.bankHolderName || ''}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        required
+                        className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2"
+                        disabled={!isEditing}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="flex justify-end">

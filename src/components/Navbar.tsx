@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Stethoscope } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="flex items-center h-16">
           {/* Logo - Left */}
           <Link to="/" className="flex items-center space-x-2">
-            <Stethoscope className="h-8 w-8 text-blue-600" />
+            <img src="/drs-logo.png" alt="Drs Welfare Logo" className="h-12 w-auto object-contain" />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-blue-600 leading-tight">Drs Welfare</span>
               <span className="text-[10px] text-gray-500 leading-tight">An initiative of Professionals Welfare Trust</span>

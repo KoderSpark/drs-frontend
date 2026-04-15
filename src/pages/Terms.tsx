@@ -169,6 +169,17 @@ export default function Terms() {
                   <li>No claim is enforceable as a right or debt.</li>
                 </ul>
               </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 text-base">5. NOMINEE CLAUSE</h3>
+                <div className="pl-4 mt-1 space-y-3">
+                  <p>
+                    While the Trust permits a member to nominate one or more nominees, in cases of 2 or more nominees, if any dispute, confusion, or disagreement concerning the nomination, legitimacy or entitlement of such nominees arises, the Trustees will be fully entitled to make their judgment regarding who should receive help or financial assistance based on the objectives of the Trust. The decision made by the Trustees shall be final and legally binding, and there can be no legal or judicial challenge to that decision.
+                  </p>
+                  <p>
+                    In cases where the member appoints 2 or more nominees, the member may specify the percentage in which financial assistance is to be apportioned between such nominees, and the same shall be acted upon by the Trust. In the event of any dispute, inconsistency, or uncertainty concerning the nomination, specified proportions, or entitlement of the nominee(s), the matter shall be resolved at the sole discretion of the Trustees, having regard to the objectives and best interests of the Trust. The decision of the Trustees in such cases shall be final, conclusive, and binding on all concerned, and shall not be subject to any legal or judicial challenge.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -270,12 +281,19 @@ export default function Terms() {
           {/* Chapter X */}
           <section>
             <h2 className="text-xl font-bold text-blue-700 uppercase border-b-2 border-blue-200 pb-2 mb-4">CHAPTER X — AMENDMENT</h2>
-            <div className="text-sm text-gray-700 space-y-2">
-              <p>These Rules may be amended by a Trustee Resolution, provided Trust nature is unchanged.</p>
-              <ul className="pl-4 space-y-1 list-decimal">
-                <li>PWT reserves the right to modify, amend, or replace any rules at any time to meet operational or legal requirements.</li>
-                <li>The version of the rules uploaded on the official website shall be deemed final and legally binding.</li>
-              </ul>
+            <div className="text-sm text-gray-700 space-y-3">
+              <p>
+                <strong>11.1.</strong> PWT reserves the right to modify, amend, or replace any rules at any time to meet operational or legal requirements.
+              </p>
+              <p>
+                The Trust reserves the right to create, modify or amend any welfare scheme or assistance program or other benefits for the registered members or designated classes of members.
+              </p>
+              <p>
+                The Rules and Bye-laws can be revised, amended, altered and updated at any time by the Trustees of the trust according to the aims and needs of the organization.
+              </p>
+              <p className="text-xs text-gray-500 italic mt-2">
+                * The version of the rules uploaded on the official website shall be deemed final and legally binding.
+              </p>
             </div>
           </section>
 

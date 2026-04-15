@@ -13,6 +13,8 @@ interface Doctor {
   status: string;
   passportPhoto: string;
   certificates: string;
+  aadharNumber?: string;
+  aadharPhoto?: string;
   createdAt: string;
 }
 
@@ -218,6 +220,23 @@ export default function Admin() {
                                   className="text-sm text-blue-600 hover:underline"
                                 >
                                   View Certificates
+                                </a>
+                              </div>
+                            )}
+                            <div>
+                              <p className="text-sm text-gray-500">Aadhar Number</p>
+                              <p className="text-sm font-medium text-gray-900">{doctor.aadharNumber || 'Not Provided'}</p>
+                            </div>
+                            {doctor.aadharPhoto && (
+                              <div>
+                                <p className="text-sm text-gray-500">Aadhar Photo</p>
+                                <a
+                                  href={doctor.aadharPhoto}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-sm text-blue-600 hover:underline"
+                                >
+                                  View Aadhar
                                 </a>
                               </div>
                             )}

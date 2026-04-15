@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Stethoscope, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Stethoscope className="h-8 w-8 text-blue-400" />
+              <img src="/drs-logo.png" alt="Drs Welfare Logo" className="h-12 w-auto object-contain" />
               <span className="text-xl font-bold">Drs Welfare</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-2">

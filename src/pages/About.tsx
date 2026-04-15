@@ -27,11 +27,11 @@ export default function About() {
                 Today, Drs Welfare serves registered medical doctors across India — including Doctors, Dentists, Dermatologists, Surgeons, Physicians, Pediatricians, Ophthalmologists, and Orthopedic Specialists — providing them with the assurance that their medical community stands together in times of need.
               </p>
             </div>
-            <div>
+            <div className="flex items-center justify-center bg-blue-50 rounded-lg p-4 h-full min-h-[300px]">
               <img
-                src="/community_bg.png"
-                alt="Doctors Community"
-                className="rounded-lg shadow-lg"
+                src="/drs-logo.png"
+                alt="Drs Welfare Logo"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
