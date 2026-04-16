@@ -14,7 +14,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Doctors Supporting Doctors Together
+              Empowering Medical Professionals Together
             </h1>
             <p className="text-xl mb-8 text-white">
               Join Drs Welfare — An initiative by Professionals Welfare Trust (PWT). A member-based mutual self-support platform designed exclusively for registered doctors.
