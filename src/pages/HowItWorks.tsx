@@ -56,8 +56,8 @@ export default function HowItWorks() {
               </div>
               <div className="order-1 md:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=800&auto=format&fit=crop"
-                  alt="Doctor Registration"
+                  src="https://images.pexels.com/photos/9064715/pexels-photo-9064715.jpeg?_gl=1*byya5m*_ga*OTI2NDQ0Njk4LjE3NzM5NzgwNzE.*_ga_8JE65Q40S6*czE3NzYzNjc4MjEkbzIkZzEkdDE3NzYzNjc4MzAkajUxJGwwJGgw"
+                  alt="Doctor filling registration form"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -66,8 +66,8 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=800&auto=format&fit=crop"
-                  alt="Medical Document Verification"
+                  src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80"
+                  alt="Doctor reviewing medical documents"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -136,8 +136,8 @@ export default function HowItWorks() {
               </div>
               <div className="order-1 md:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop"
-                  alt="Membership Fee Payment"
+                  src="https://images.pexels.com/photos/325135/pexels-photo-325135.jpeg?_gl=1*1typk5g*_ga*OTI2NDQ0Njk4LjE3NzM5NzgwNzE.*_ga_8JE65Q40S6*czE3NzYzNjc4MjEkbzIkZzEkdDE3NzYzNjc4NjQkajE3JGwwJGgw"
+                  alt="Doctor processing membership payment"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -146,8 +146,8 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop"
-                  alt="Doctor Community Support"
+                  src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80"
+                  alt="Healthcare professionals in a supportive team"
                   className="rounded-lg shadow-lg"
                 />
               </div>
