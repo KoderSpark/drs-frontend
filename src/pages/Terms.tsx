@@ -28,7 +28,7 @@ export default function Terms() {
           <div className="border-l-4 border-blue-600 pl-6 bg-blue-50 py-4 rounded-r-lg">
             <h2 className="text-xl font-bold text-blue-800 mb-3">RULES &amp; BYE-LAWS OF PROFESSIONALS WELFARE TRUST (PWT)</h2>
             <p className="text-gray-700 text-sm leading-relaxed mb-3">
-              <strong>Drs Welfare</strong> is an exclusive mutual self-support platform operating under the umbrella of the Professionals Welfare Trust (PWT). These Rules &amp; Bye-Laws govern membership, conduct, mutual assistance, digital platform usage, trustee powers,
+              <strong>Doctors Welfare</strong> is an exclusive mutual self-support platform operating under the umbrella of the Professionals Welfare Trust (PWT). These Rules &amp; Bye-Laws govern membership, conduct, mutual assistance, digital platform usage, trustee powers,
               disciplinary mechanisms, and administrative procedures of the Trust. They shall be read in conjunction with the Trust
               Deed and are binding on all registered members, nominees, coordinators, and office bearers.
             </p>

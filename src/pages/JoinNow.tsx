@@ -288,7 +288,7 @@ export default function JoinNow() {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Application Submitted Successfully!</h2>
             <p className="text-lg text-gray-700 mb-6">
-              Thank you for applying to Drs Welfare. We have received your application and the Trustees will review your documents. Approval is at the Trustees' absolute discretion.
+              Thank you for applying to Doctors Welfare. We have received your application and the Trustees will review your documents. Approval is at the Trustees' absolute discretion.
             </p>
             <p className="text-gray-600 mb-8">
               A confirmation email has been sent to <strong>{formData.email}</strong> with further instructions.
@@ -314,9 +314,9 @@ export default function JoinNow() {
     <div className="min-h-screen bg-gray-50">
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Drs Welfare</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Doctors Welfare</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Complete the registration form below to apply for Drs Welfare membership. Open to all registered doctors aged 60 or below (Indian citizens only).
+            Complete the registration form below to apply for Doctors Welfare membership. Open to all registered doctors aged 60 or below (Indian citizens only).
           </p>
         </div>
       </section>
@@ -993,7 +993,7 @@ export default function JoinNow() {
                   className="mt-1 mr-3 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
                 <label htmlFor="termsAccepted" className="text-sm text-gray-700">
-                  I accept the <Link to="/terms" className="text-blue-600 hover:underline">Rules &amp; Bye-Laws of PWT</Link>, understand that Drs Welfare is a voluntary mutual self-support platform operating under PWT (not insurance), and that all information provided is accurate and complete. *
+                  I accept the <Link to="/terms" className="text-blue-600 hover:underline">Rules &amp; Bye-Laws of PWT</Link>, understand that Doctors Welfare is a voluntary mutual self-support platform operating under PWT (not insurance), and that all information provided is accurate and complete. *
                 </label>
               </div>
               {errors.termsAccepted && <p className="text-red-500 text-sm">{errors.termsAccepted}</p>}

@@ -43,6 +43,11 @@ export const api = {
     list: () => request('/api/contacts'),
   },
 
+  visitor: {
+    visit: () => request('/api/visitor/visit', { method: 'POST', headers: buildHeaders(true) }),
+    count: () => request('/api/visitor/count'),
+  },
+
   admin: {
     register: (payload: { name: string; email: string; password: string; phone?: string }) =>
       request('/api/admin/register', { method: 'POST', headers: buildHeaders(true), body: JSON.stringify(payload) }),

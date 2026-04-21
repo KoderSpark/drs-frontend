@@ -5,7 +5,7 @@ export default function About() {
     <div className="min-h-screen">
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Drs Welfare</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Doctors Welfare</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
             A Member-Based Mutual Self Support Trust — Public Charitable &amp; Welfare Trust (Non-Profit)
           </p>
@@ -18,19 +18,19 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Drs Welfare was founded with a singular vision: to create a voluntary mutual self-support system exclusively for registered doctors. Operating as an initiative under the Professionals Welfare Trust (PWT), it brings together individuals who believe in the power of collective support.
+                Doctors Welfare was founded with a singular vision: to create a voluntary mutual self-support system exclusively for registered doctors. Operating as an initiative under the Professionals Welfare Trust (PWT), it brings together individuals who believe in the power of collective support.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Drs Welfare is not an insurance company, investment scheme, or profit-making entity. The platform operates under PWT, a public charitable and welfare trust where members voluntarily contribute to support the families and nominees of deceased members — directly, transparently, and with full accountability.
+                Doctors Welfare is not an insurance company, investment scheme, or profit-making entity. The platform operates under PWT, a public charitable and welfare trust where members voluntarily contribute to support the families and nominees of deceased members — directly, transparently, and with full accountability.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Today, Drs Welfare serves registered medical doctors across India — including Doctors, Dentists, Dermatologists, Surgeons, Physicians, Pediatricians, Ophthalmologists, and Orthopedic Specialists — providing them with the assurance that their medical community stands together in times of need.
+                Today, Doctors Welfare serves registered medical doctors across India — including Doctors, Dentists, Dermatologists, Surgeons, Physicians, Pediatricians, Ophthalmologists, and Orthopedic Specialists — providing them with the assurance that their medical community stands together in times of need.
               </p>
             </div>
             <div className="flex items-center justify-center bg-blue-50 rounded-lg p-4 h-full min-h-[300px]">
               <img
                 src="/drs-logo.png"
-                alt="Drs Welfare Logo"
+                alt="Doctors Welfare Logo"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -84,7 +84,7 @@ export default function About() {
               <div>
                 <h3 className="text-xl font-semibold mb-3">Not Insurance or Investment</h3>
                 <p className="text-blue-100 leading-relaxed">
-                  Drs Welfare operates under PWT, a public charitable trust — not an insurance company, not an investment scheme, and not a profit-making entity. We facilitate voluntary mutual support among doctors.
+                  Doctors Welfare operates under PWT, a public charitable trust — not an insurance company, not an investment scheme, and not a profit-making entity. We facilitate voluntary mutual support among doctors.
                 </p>
               </div>
               <div>

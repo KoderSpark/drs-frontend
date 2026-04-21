@@ -1,18 +1,51 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { api } from '../api/backend';
 
 export default function Footer() {
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadVisitorCount = async () => {
+      try {
+        const hasVisited = localStorage.getItem('visited');
+        if (!hasVisited) {
+          await api.visitor.visit();
+          localStorage.setItem('visited', '1');
+        }
+
+        const data = await api.visitor.count();
+        if (isMounted && data && typeof data.count === 'number') {
+          setVisitorCount(data.count);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setVisitorCount(0);
+        }
+      }
+    };
+
+    loadVisitorCount();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/drs-logo.png" alt="Drs Welfare Logo" className="h-12 w-auto object-contain" />
-              <span className="text-xl font-bold">Drs Welfare</span>
+              <img src="/drs-logo.png" alt="Doctors Welfare Logo" className="h-12 w-auto object-contain" />
+              <span className="text-xl font-bold">Doctors Welfare</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-2">
-              Drs Welfare — A member-based mutual self-support platform for registered doctors, organized under Professionals Welfare Trust (PWT).
+              Doctors Welfare — A member-based mutual self-support platform for registered doctors, organized under Professionals Welfare Trust (PWT).
             </p>
             <p className="text-gray-500 text-xs">
               Public Charitable &amp; Welfare Trust (Non-Profit)
@@ -24,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                  About Drs Welfare
+                  About Doctors Welfare
                 </Link>
               </li>
               <li>
@@ -88,6 +121,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Professionals Welfare Trust (PWT). All rights reserved. |
             <Link to="/terms" className="hover:text-blue-400 transition-colors ml-1">By-Laws</Link> |
             <Link to="/contact" className="hover:text-blue-400 transition-colors ml-1">Contact Us</Link>
+          </p>
+          <p className="text-gray-400 text-sm mt-2">
+            Total Visitors: {visitorCount ?? 0}
           </p>
         </div>
       </div>
