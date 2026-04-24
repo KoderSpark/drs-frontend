@@ -23,7 +23,14 @@ async function request(path: string, opts: RequestInit = {}) {
   let body: any = text;
   try { body = text ? JSON.parse(text) : undefined; } catch (e) { /* not json */ }
   if (!res.ok) {
-    const err = new Error(body && body.message ? body.message : `Request failed: ${res.status}`);
+    let errorMessage = `Request failed: ${res.status}`;
+    if (body && typeof body === 'object' && body.message) {
+      errorMessage = body.message;
+    } else if (typeof body === 'string' && body.trim() !== '') {
+      // If it's a long HTML error page, truncate it
+      errorMessage = body.length > 200 ? body.substring(0, 200) + '...' : body;
+    }
+    const err = new Error(errorMessage);
     (err as any).status = res.status;
     (err as any).body = body;
     throw err;

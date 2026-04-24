@@ -20,14 +20,7 @@ export default function Terms() {
             <span className="bg-white/10 px-3 py-1 rounded-full">✔ Benefits strictly restricted to Registered Members only</span>
             <span className="bg-white/10 px-3 py-1 rounded-full">✔ Not an Insurance / Investment / Profit-Making Entity</span>
           </div>
-          <p className="mt-6 text-blue-200 text-xs italic">
-            Adopted pursuant to the Deed of Trust dated _____________, 2026<br/>
-            Place: _____________ &nbsp;&nbsp;&nbsp; Date: _____________
-          </p>
-          <div className="mt-4 flex justify-between px-12 text-sm text-blue-200">
-            <span>__________________________<br/>Trustee</span>
-            <span>__________________________<br/>Trustee</span>
-          </div>
+
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-10">
@@ -45,7 +38,6 @@ export default function Terms() {
                 <span key={item} className="bg-blue-100 text-blue-800 px-2 py-1 rounded">✔ {item}</span>
               ))}
             </div>
-            <p className="text-xs text-blue-800 font-medium">Adopted by the Board of Trustees on _____________, 2026</p>
           </div>
 
           {/* Chapter I */}
@@ -450,40 +442,25 @@ export default function Terms() {
 
           {/* Chapter X */}
           <section>
-            <h2 className="text-xl font-bold text-blue-700 uppercase border-b-2 border-blue-200 pb-2 mb-4">CHAPTER X — ACCOUNTS &amp; TRANSPARENCY</h2>
+            <h2 className="text-xl font-bold text-blue-700 uppercase border-b-2 border-blue-200 pb-2 mb-4">CHAPTER X — AMENDMENT</h2>
             <div className="text-sm text-gray-700 space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-900">1. ACCOUNTS</h3>
-                <ul className="pl-8 mt-1 space-y-1 list-decimal">
-                  <li>Accounts shall be maintained properly.</li>
-                  <li>Annual audit by Chartered Accountant.</li>
-                  <li>Inspection allowed as per Trustee decision.</li>
-                </ul>
+                <h3 className="font-semibold text-gray-900">AMENDMENT OF RULES</h3>
+                <p className="pl-4 mt-1 mb-2">These Rules may be amended by a Trustee Resolution, provided Trust nature is unchanged.</p>
+                <h3 className="font-semibold text-gray-900">10. Amendments</h3>
+                <div className="pl-4 mt-1 space-y-2">
+                  <p><strong>10.1.</strong> PWT reserves the right to modify, amend, or replace any rules at any time to meet operational or legal requirements.</p>
+                  <p><strong>10.2.</strong> The Trust reserves the right to create, modify, suspend or amend any welfare scheme or assistance program or other benefits for the registered members or designated classes of members.</p>
+                  <p><strong>10.3.</strong> The Rules and Bye-laws can be revised, amended, altered, suspended and updated at any time by the Trustees of the trust according to the aims and needs of the organization.</p>
+                  <p><strong>10.4.</strong> The version of the rules uploaded on the official website shall be deemed final and legally binding.</p>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Chapter XI */}
           <section>
-            <h2 className="text-xl font-bold text-blue-700 uppercase border-b-2 border-blue-200 pb-2 mb-4">CHAPTER XI — AMENDMENT</h2>
-            <div className="text-sm text-gray-700 space-y-4">
-              <div>
-                <h3 className="font-semibold text-gray-900">AMENDMENT OF RULES</h3>
-                <p className="pl-4 mt-1 mb-2">These Rules may be amended by a Trustee Resolution, provided Trust nature is unchanged.</p>
-                <h3 className="font-semibold text-gray-900">11. Amendments</h3>
-                <div className="pl-4 mt-1 space-y-2">
-                  <p><strong>11.1.</strong> PWT reserves the right to modify, amend, or replace any rules at any time to meet operational or legal requirements.</p>
-                  <p><strong>11.2.</strong> The Trust reserves the right to create, modify, suspend or amend any welfare scheme or assistance program or other benefits for the registered members or designated classes of members.</p>
-                  <p><strong>11.3.</strong> The Rules and Bye-laws can be revised, amended, altered, suspended and updated at any time by the Trustees of the trust according to the aims and needs of the organization.</p>
-                  <p><strong>11.4.</strong> The version of the rules uploaded on the official website shall be deemed final and legally binding.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Chapter XII */}
-          <section>
-            <h2 className="text-xl font-bold text-blue-700 uppercase border-b-2 border-blue-200 pb-2 mb-4">CHAPTER XII — FINAL PROVISIONS</h2>
+            <h2 className="text-xl font-bold text-blue-700 uppercase border-b-2 border-blue-200 pb-2 mb-4">CHAPTER XI — FINAL PROVISIONS</h2>
             <div className="text-sm text-gray-700 space-y-4">
               <div>
                 <h3 className="font-semibold text-gray-900">1. INTERPRETATION</h3>
