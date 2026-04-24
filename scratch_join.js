@@ -1,5 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const filePath = path.join(__dirname, 'src', 'pages', 'JoinNow.tsx');
 let content = fs.readFileSync(filePath, 'utf8');
@@ -172,7 +176,7 @@ content = content.replace(
 );
 
 // 6. Update JSX
-const jsxBefore = \`            <div className="mb-8 bg-blue-50 p-6 rounded-xl">
+const jsxBefore = `            <div className="mb-8 bg-blue-50 p-6 rounded-xl">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Nominee Details</h3>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -315,9 +319,9 @@ const jsxBefore = \`            <div className="mb-8 bg-blue-50 p-6 rounded-xl">
                   {errors.nomineeIFSC && <p className="text-red-500 text-sm mt-1">{errors.nomineeIFSC}</p>}
                 </div>
               </div>
-            </div>\``;
+            </div>`;
 
-const jsxAfter = \`            <div className="mb-8 bg-blue-50 p-6 rounded-xl">
+const jsxAfter = `            <div className="mb-8 bg-blue-50 p-6 rounded-xl">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 sm:mb-0">Nominee Details</h3>
                 <div className="flex items-center">
@@ -509,7 +513,7 @@ const jsxAfter = \`            <div className="mb-8 bg-blue-50 p-6 rounded-xl">
                   </div>
                 </div>
               ))}
-            </div>\``;
+            </div>`;
 
 content = content.replace(jsxBefore, jsxAfter);
 

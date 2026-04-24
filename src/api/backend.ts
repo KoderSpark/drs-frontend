@@ -1,5 +1,8 @@
 // Lightweight frontend API client for the backend
-const BASE = import.meta.env.VITE_BACKEND_URL;
+let BASE = import.meta.env.VITE_BACKEND_URL || '';
+if (BASE.includes('localhost') && typeof window !== 'undefined') {
+  BASE = BASE.replace('localhost', window.location.hostname);
+}
 
 function getToken() {
   return localStorage.getItem('token');
