@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, Users, Heart, CheckCircle, ArrowRight } from 'lucide-react';
+import { Shield, Users, Heart, CheckCircle, ArrowRight, Gift, Clock, FileText, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -91,7 +91,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-blue-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
               <div className="bg-blue-600 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
                 <Shield className="text-white" size={28} />
@@ -120,6 +120,82 @@ export default function Home() {
               <p className="text-gray-600 leading-relaxed">
                 In the event of a member's passing, contributions from fellow members are transferred directly to the designated nominee's bank account.
               </p>
+            </div>
+
+            <div className="bg-blue-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+              <div className="bg-blue-600 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                <Gift className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Marriage Assistance</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Discretionary financial assistance for eligible members for the solemnization of their daughter's marriage as a welfare measure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+            <div className="grid md:grid-cols-2">
+              <div className="p-10 lg:p-12 bg-gradient-to-br from-blue-50 to-indigo-50">
+                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-md">
+                  <Gift className="text-white" size={32} />
+                </div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Marriage Assistance Program</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  The Trust provides discretionary financial assistance to eligible members for the solemnization of their daughter's marriage. This is a voluntary, welfare-based initiative.
+                </p>
+                <div className="bg-white/60 rounded-xl p-6 backdrop-blur-sm border border-white">
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                    <CheckCircle2 className="text-blue-600 mr-2" size={20} />
+                    Eligibility Criteria
+                  </h4>
+                  <ul className="space-y-2 text-gray-700 ml-7">
+                    <li className="list-disc">Minimum membership &amp; lock-in period completed</li>
+                    <li className="list-disc">Active membership with fully paid contributions</li>
+                    <li className="list-disc">Applies to biological, legally adopted, or dependent step-daughters</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="p-10 lg:p-12 flex flex-col justify-center space-y-8">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1">
+                    <Clock className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <div className="ml-5">
+                    <h4 className="text-xl font-semibold text-gray-900">Application Timeline</h4>
+                    <p className="mt-2 text-gray-600">
+                      Applications must be submitted at least <strong>90 days prior</strong> to the marriage date. Post-marriage applications are not entertained.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1">
+                    <FileText className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <div className="ml-5">
+                    <h4 className="text-xl font-semibold text-gray-900">Required Documents</h4>
+                    <p className="mt-2 text-gray-600">
+                      Members must provide membership proof, identity proof of the daughter, and valid proof of marriage (invitation or registration).
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mt-1">
+                    <Shield className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <div className="ml-5">
+                    <h4 className="text-xl font-semibold text-gray-900">Important Note</h4>
+                    <p className="mt-2 text-gray-600">
+                      Assistance is granted normally once per daughter, and the amount is determined solely by the Trustees at their discretion.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

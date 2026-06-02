@@ -58,6 +58,10 @@ export default function FAQ() {
       answer: 'No. PWT does not assure or guarantee any amount. Assistance depends entirely on the voluntary cooperation of members. No claim is enforceable as a legal right or debt. Members have no legal claim to receive any fixed or guaranteed benefit.',
     },
     {
+      question: 'Is there any assistance for the marriage of members\' daughters?',
+      answer: 'Yes, the Trust may provide discretionary financial assistance to eligible members for the solemnization of their daughter\'s marriage as a welfare measure. The member must have an active membership, fully paid contributions, and completed the lock-in period. Applications must be submitted at least 90 days prior to the marriage date.',
+    },
+    {
       question: 'How do contributions work?',
       answer: 'When a member passes away, all registered members are required to contribute to the deceased member\'s nominee. Contributions are made directly to the nominee\'s bank account — PWT facilitates the coordination. Members must upload valid payment receipts via the official website or designated Google Form. Failure to contribute renders a member ineligible for future assistance.',
     },

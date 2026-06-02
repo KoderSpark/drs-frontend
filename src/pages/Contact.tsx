@@ -181,6 +181,7 @@ export default function Contact() {
                       <option value="membership">Membership Inquiry</option>
                       <option value="contribution">Contribution Query</option>
                       <option value="membership-status">Membership Status</option>
+                      <option value="marriage-assistance">Marriage Assistance</option>
                       <option value="technical">Technical Support</option>
                       <option value="nominee">Nominee Details</option>
                       <option value="feedback">Feedback</option>

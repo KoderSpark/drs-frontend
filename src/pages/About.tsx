@@ -21,7 +21,7 @@ export default function About() {
                 Doctors Welfare was founded with a singular vision: to create a voluntary mutual self-support system exclusively for registered doctors. Operating as an initiative under the Professionals Welfare Trust (PWT), it brings together individuals who believe in the power of collective support.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Doctors Welfare is not an insurance company, investment scheme, or profit-making entity. The platform operates under PWT, a public charitable and welfare trust where members voluntarily contribute to support the families and nominees of deceased members — directly, transparently, and with full accountability.
+                Doctors Welfare is not an insurance company, investment scheme, or profit-making entity. The platform operates under PWT, a public charitable and welfare trust where members voluntarily contribute to support the families and nominees of deceased members — directly, transparently, and with full accountability. In addition to bereavement support, the Trust also extends discretionary financial assistance for the marriage of members' daughters as a holistic welfare measure.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Today, Doctors Welfare serves registered medical doctors across India — including Doctors, Dentists, Dermatologists, Surgeons, Physicians, Pediatricians, Ophthalmologists, and Orthopedic Specialists — providing them with the assurance that their medical community stands together in times of need.
