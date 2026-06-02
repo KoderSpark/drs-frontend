@@ -19,6 +19,18 @@ export const initialNominee: Nominee = {
   name: '', age: '', sex: '', email: '', phone: '', bankAccountNumber: '', bankAccountNumberConfirm: '', ifscCode: '', bankHolderName: '', percentage: '100'
 };
 
+export interface Daughter {
+  name: string;
+  age: string;
+  relationshipType: string;
+  phone: string;
+  email: string;
+  aadharNumber: string;
+  aadharPhoto: File | null;
+}
+
+export const initialDaughter: Daughter = { name: '', age: '', relationshipType: '', phone: '', email: '', aadharNumber: '', aadharPhoto: null };
+
 interface FormData {
   name: string;
   age: string;
@@ -86,6 +98,44 @@ export default function JoinNow() {
 
   const [numNominees, setNumNominees] = useState(1);
   const [nominees, setNominees] = useState<Nominee[]>([{...initialNominee}]);
+
+  const [daughters, setDaughters] = useState<Daughter[]>([]);
+
+  const handleDaughterChange = (index: number, e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const newDaughters = [...daughters];
+    
+    if (type === 'file') {
+      const target = e.target as HTMLInputElement;
+      if (target.files && target.files[0]) {
+        newDaughters[index] = { ...newDaughters[index], [name]: target.files[0] };
+      }
+    } else {
+      newDaughters[index] = { ...newDaughters[index], [name]: value };
+    }
+    
+    setDaughters(newDaughters);
+    
+    const errorKey = `daughter_${index}_${name}`;
+    if (errors[errorKey]) {
+      setErrors(prev => ({ ...prev, [errorKey]: '' }));
+    }
+  };
+
+  const addDaughter = () => setDaughters([...daughters, { ...initialDaughter }]);
+  const removeDaughter = (index: number) => {
+    const newDaughters = daughters.filter((_, i) => i !== index);
+    setDaughters(newDaughters);
+    
+    // Clean up related errors
+    const newErrors = { ...errors };
+    Object.keys(newErrors).forEach(key => {
+      if (key.startsWith(`daughter_${index}_`)) {
+        delete newErrors[key];
+      }
+    });
+    setErrors(newErrors);
+  };
 
   const handleNumNomineesChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const num = parseInt(e.target.value, 10);
@@ -192,6 +242,16 @@ export default function JoinNow() {
     newErrors.nomineePercentageTotal = 'Total percentage across all nominees must be exactly 100%';
   }
 
+  daughters.forEach((d, idx) => {
+    if (!d.name.trim()) newErrors[`daughter_${idx}_name`] = 'Daughter name is required';
+    if (!d.age) newErrors[`daughter_${idx}_age`] = 'Daughter age is required';
+    if (!d.relationshipType) newErrors[`daughter_${idx}_relationshipType`] = 'Relationship type is required';
+    if (!d.phone) newErrors[`daughter_${idx}_phone`] = 'Phone number is required';
+    if (!d.email || !/\S+@\S+\.\S+/.test(d.email)) newErrors[`daughter_${idx}_email`] = 'Valid email is required';
+    if (!d.aadharNumber.trim()) newErrors[`daughter_${idx}_aadharNumber`] = 'Aadhar number is required';
+    if (!d.aadharPhoto) newErrors[`daughter_${idx}_aadharPhoto`] = 'Aadhar photo is required';
+  });
+
   if (!formData.password || formData.password.length < 6) newErrors.password = 'Password (min 6 chars) is required';
 
   if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms and conditions';
@@ -231,6 +291,20 @@ export default function JoinNow() {
 
         // nominees array
         form.append('nominees', JSON.stringify(nominees));
+
+        if (daughters.length > 0) {
+          const daughtersJson = daughters.map(d => {
+            const { aadharPhoto, ...rest } = d;
+            return rest;
+          });
+          form.append('daughters', JSON.stringify(daughtersJson));
+
+          daughters.forEach((d, idx) => {
+            if (d.aadharPhoto) {
+              form.append(`daughterAadharPhoto_${idx}`, d.aadharPhoto);
+            }
+          });
+        }
 
         const family1 = {
           name: formData.family1Name,
@@ -788,6 +862,163 @@ export default function JoinNow() {
                         className={`w-full px-4 py-2 border ${errors[`nominee_${idx}_percentage`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-yellow-50`}
                       />
                       {errors[`nominee_${idx}_percentage`] && <p className="text-red-500 text-sm mt-1">{errors[`nominee_${idx}_percentage`]}</p>}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mb-8 bg-pink-50 p-6 rounded-xl">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Daughter Details (Optional)</h3>
+                  <p className="text-sm text-gray-600 mt-1">Provide details if you intend to apply for the Marriage Assistance Program in the future.</p>
+                </div>
+                <button 
+                  type="button" 
+                  onClick={addDaughter}
+                  className="mt-4 sm:mt-0 bg-white border-2 border-pink-200 text-pink-700 px-4 py-2 rounded-lg font-medium hover:bg-pink-100 transition-colors"
+                >
+                  + Add Daughter
+                </button>
+              </div>
+
+              {daughters.length === 0 && (
+                <p className="text-sm text-gray-500 italic mt-2">No daughters added. You can safely skip this if not applicable.</p>
+              )}
+
+              {daughters.map((daughter, idx) => (
+                <div key={idx} className={`relative ${idx > 0 ? 'border-t-2 border-pink-200 pt-6 mt-6' : 'mt-6'}`}>
+                  <button 
+                    type="button"
+                    onClick={() => removeDaughter(idx)}
+                    className="absolute top-0 right-0 mt-6 text-red-500 text-sm hover:underline"
+                  >
+                    Remove
+                  </button>
+                  <h4 className="font-semibold text-lg text-pink-800 mb-4 inline-block">
+                    Daughter {idx + 1}
+                  </h4>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <label htmlFor={`daughter_${idx}_name`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Name *
+                      </label>
+                      <input
+                        type="text"
+                        id={`daughter_${idx}_name`}
+                        name="name"
+                        value={daughter.name}
+                        onChange={(e) => handleDaughterChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`daughter_${idx}_name`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`}
+                      />
+                      {errors[`daughter_${idx}_name`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_name`]}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor={`daughter_${idx}_age`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Age *
+                      </label>
+                      <input
+                        type="number"
+                        id={`daughter_${idx}_age`}
+                        name="age"
+                        value={daughter.age}
+                        onChange={(e) => handleDaughterChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`daughter_${idx}_age`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`}
+                      />
+                      {errors[`daughter_${idx}_age`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_age`]}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor={`daughter_${idx}_relationshipType`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Relationship Type *
+                      </label>
+                      <select
+                        id={`daughter_${idx}_relationshipType`}
+                        name="relationshipType"
+                        value={daughter.relationshipType}
+                        onChange={(e) => handleDaughterChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`daughter_${idx}_relationshipType`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`}
+                      >
+                        <option value="">Select Type</option>
+                        <option value="biological">Biological</option>
+                        <option value="adopted">Legally Adopted</option>
+                        <option value="step">Step-daughter / Dependent</option>
+                      </select>
+                      {errors[`daughter_${idx}_relationshipType`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_relationshipType`]}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor={`daughter_${idx}_phone`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        id={`daughter_${idx}_phone`}
+                        name="phone"
+                        value={daughter.phone}
+                        onChange={(e) => handleDaughterChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`daughter_${idx}_phone`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`}
+                      />
+                      {errors[`daughter_${idx}_phone`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_phone`]}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor={`daughter_${idx}_email`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id={`daughter_${idx}_email`}
+                        name="email"
+                        value={daughter.email}
+                        onChange={(e) => handleDaughterChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`daughter_${idx}_email`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`}
+                      />
+                      {errors[`daughter_${idx}_email`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_email`]}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor={`daughter_${idx}_aadharNumber`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Number *
+                      </label>
+                      <input
+                        type="text"
+                        id={`daughter_${idx}_aadharNumber`}
+                        name="aadharNumber"
+                        value={daughter.aadharNumber}
+                        onChange={(e) => handleDaughterChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`daughter_${idx}_aadharNumber`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`}
+                      />
+                      {errors[`daughter_${idx}_aadharNumber`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_aadharNumber`]}</p>}
+                    </div>
+
+                    <div className="md:col-span-3">
+                      <label htmlFor={`daughter_${idx}_aadharPhoto`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Photo *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id={`daughter_${idx}_aadharPhoto`}
+                          name="aadharPhoto"
+                          onChange={(e) => handleDaughterChange(idx, e)}
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor={`daughter_${idx}_aadharPhoto`}
+                          className={`flex items-center justify-center w-full px-4 py-3 border-2 ${errors[`daughter_${idx}_aadharPhoto`] ? 'border-red-500' : 'border-gray-300'} border-dashed rounded-lg cursor-pointer hover:bg-pink-50 transition-colors`}
+                        >
+                          <Upload className="mr-2 text-gray-400" size={20} />
+                          <span className="text-gray-600 truncate max-w-[200px]">
+                            {daughter.aadharPhoto ? daughter.aadharPhoto.name : 'Choose file'}
+                          </span>
+                        </label>
+                      </div>
+                      {errors[`daughter_${idx}_aadharPhoto`] && <p className="text-red-500 text-sm mt-1">{errors[`daughter_${idx}_aadharPhoto`]}</p>}
                     </div>
                   </div>
                 </div>
