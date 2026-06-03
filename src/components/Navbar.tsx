@@ -15,9 +15,9 @@ export default function Navbar() {
 
   const publicLinks = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Doctors Welfare' },
+    { path: '/about', label: 'About' },
     { path: '/how-it-works', label: 'How It Works' },
-    { path: '/membership', label: 'Membership Details' },
+    { path: '/membership', label: 'Membership' },
     { path: '/faq', label: 'FAQ' },
     { path: '/contact', label: 'Contact Us' },
   ];
@@ -28,7 +28,7 @@ export default function Navbar() {
     ? [{ path: '/admin', label: 'Admin Dashboard' }]
     : [
         { path: '/doctors', label: 'Members' },
-        { path: '/deceased', label: 'Deceased Members' },
+        { path: '/deceased', label: 'Deceased' },
         { path: '/profile', label: 'My Profile' },
       ];
 
@@ -36,10 +36,10 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-16">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center min-h-[4rem] py-2">
           {/* Logo - Left */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 flex-shrink-0 mr-4">
             <img src="/drs-logo.png" alt="Doctors Welfare Logo" className="h-12 w-auto object-contain" />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-blue-600 leading-tight">Doctors Welfare</span>
@@ -48,14 +48,14 @@ export default function Navbar() {
           </Link>
 
           {/* Navigation Items - Center */}
-          <div className="hidden xl:flex items-center space-x-1 lg:space-x-2 flex-1 justify-center">
+          <div className="hidden xl:flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 flex-1">
             {activeLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-sm whitespace-nowrap px-2 py-1 rounded ${
-                    isActive ? 'text-blue-600 font-semibold' : 'text-black hover:text-blue-600'
+                  `text-[13px] xl:text-sm whitespace-nowrap px-2 py-1 rounded ${
+                    isActive ? 'text-blue-600 font-semibold bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                   } transition-colors`
                 }
               >
@@ -65,7 +65,7 @@ export default function Navbar() {
           </div>
 
           {/* Action Buttons - Right */}
-          <div className="hidden xl:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-3 flex-shrink-0 ml-4">
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}

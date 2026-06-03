@@ -52,12 +52,16 @@ interface FormData {
   family1Email: string;
   family1Mobile: string;
   family1Address: string;
+  family1AadharNumber: string;
+  family1AadharPhoto: File | null;
   family2Name: string;
   family2Age: string;
   family2Sex: string;
   family2Email: string;
   family2Mobile: string;
   family2Address: string;
+  family2AadharNumber: string;
+  family2AadharPhoto: File | null;
   termsAccepted: boolean;
   subscribe: boolean;
 }
@@ -86,12 +90,16 @@ export default function JoinNow() {
     family1Email: '',
     family1Mobile: '',
     family1Address: '',
+    family1AadharNumber: '',
+    family1AadharPhoto: null,
     family2Name: '',
     family2Age: '',
     family2Sex: '',
     family2Email: '',
     family2Mobile: '',
     family2Address: '',
+    family2AadharNumber: '',
+    family2AadharPhoto: null,
     termsAccepted: false,
     subscribe: false,
   });
@@ -166,6 +174,111 @@ export default function JoinNow() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  const [currentStep, setCurrentStep] = useState(1);
+  const totalSteps = 4;
+
+  const validateStep = (step: number) => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (step === 1) {
+      if (!formData.name.trim()) newErrors.name = 'Name is required';
+      if (!formData.age) {
+        newErrors.age = 'Valid age is required (18+)';
+      } else {
+        const ageNum = parseInt(formData.age as string, 10);
+        if (isNaN(ageNum) || ageNum < 18) {
+          newErrors.age = 'Valid age is required (18+)';
+        } else if (ageNum > 60) {
+          newErrors.age = 'Age should be less than or equal to 60';
+        }
+      }
+      if (!formData.sex) newErrors.sex = 'Sex is required';
+      if (!formData.qualification) newErrors.qualification = 'Qualification is required';
+      if (!formData.mobile || formData.mobile.length < 10) newErrors.mobile = 'Valid mobile number is required';
+      if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Valid email is required';
+      if (!formData.password || formData.password.length < 6) newErrors.password = 'Password (min 6 chars) is required';
+      if (!formData.aadharNumber.trim()) newErrors.aadharNumber = 'Aadhar number is required';
+    }
+
+    if (step === 2) {
+      if (!formData.houseAddress.trim()) newErrors.houseAddress = 'House address is required';
+      if (!formData.clinicAddress.trim()) newErrors.clinicAddress = 'Clinic address is required';
+      if (!formData.passportPhoto) newErrors.passportPhoto = 'Passport photo is required';
+      if (!formData.certificates) newErrors.certificates = 'Certificates are required';
+      if (!formData.aadharPhoto) newErrors.aadharPhoto = 'Aadhar photo is required';
+    }
+
+    if (step === 3) {
+      let totalPercentage = 0;
+      nominees.forEach((n, idx) => {
+        if (!n.name.trim()) newErrors[`nominee_${idx}_name`] = 'Nominee name is required';
+        if (!n.age) newErrors[`nominee_${idx}_age`] = 'Nominee age is required';
+        if (!n.sex) newErrors[`nominee_${idx}_sex`] = 'Nominee sex is required';
+        if (!n.email || !/\S+@\S+\.\S+/.test(n.email)) newErrors[`nominee_${idx}_email`] = 'Valid nominee email is required';
+        if (!n.phone) newErrors[`nominee_${idx}_phone`] = 'Nominee phone is required';
+        if (!n.bankAccountNumber.trim()) newErrors[`nominee_${idx}_bankAccountNumber`] = 'Bank account is required';
+        if (n.bankAccountNumber.trim() !== n.bankAccountNumberConfirm.trim()) newErrors[`nominee_${idx}_bankAccountNumberConfirm`] = 'Account numbers do not match';
+        if (!n.ifscCode.trim()) newErrors[`nominee_${idx}_ifscCode`] = 'IFSC code is required';
+        if (!n.bankHolderName.trim()) newErrors[`nominee_${idx}_bankHolderName`] = 'Bank holder name is required';
+        
+        const p = parseFloat(n.percentage);
+        if (isNaN(p) || p <= 0) {
+          newErrors[`nominee_${idx}_percentage`] = 'Valid percentage required';
+        } else {
+          totalPercentage += p;
+        }
+      });
+
+      if (Math.abs(totalPercentage - 100) > 0.01) {
+        newErrors.nomineePercentageTotal = 'Total percentage across all nominees must be exactly 100%';
+      }
+
+      daughters.forEach((d, idx) => {
+        if (!d.name.trim()) newErrors[`daughter_${idx}_name`] = 'Daughter name is required';
+        if (!d.age) newErrors[`daughter_${idx}_age`] = 'Daughter age is required';
+        if (!d.relationshipType) newErrors[`daughter_${idx}_relationshipType`] = 'Relationship type is required';
+        if (!d.phone) newErrors[`daughter_${idx}_phone`] = 'Phone number is required';
+        if (!d.email || !/\S+@\S+\.\S+/.test(d.email)) newErrors[`daughter_${idx}_email`] = 'Valid email is required';
+        if (!d.aadharNumber.trim()) newErrors[`daughter_${idx}_aadharNumber`] = 'Aadhar number is required';
+        if (!d.aadharPhoto) newErrors[`daughter_${idx}_aadharPhoto`] = 'Aadhar photo is required';
+      });
+    }
+
+    if (step === 4) {
+      if (formData.family1Name.trim()) {
+        if (!formData.family1AadharNumber.trim()) newErrors.family1AadharNumber = 'Aadhar number is required for family member 1';
+        if (!formData.family1AadharPhoto) newErrors.family1AadharPhoto = 'Aadhar photo is required for family member 1';
+      }
+
+      if (formData.family2Name.trim()) {
+        if (!formData.family2AadharNumber.trim()) newErrors.family2AadharNumber = 'Aadhar number is required for family member 2';
+        if (!formData.family2AadharPhoto) newErrors.family2AadharPhoto = 'Aadhar photo is required for family member 2';
+      }
+
+      if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms and conditions';
+      if (!formData.subscribe) newErrors.subscribe = 'You must opt-in to receive updates';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const nextStep = () => {
+    if (validateStep(currentStep)) {
+      setCurrentStep(prev => Math.min(prev + 1, totalSteps));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const firstErrorField = Object.keys(errors)[0];
+      const element = document.getElementById(firstErrorField);
+      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  const prevStep = () => {
+    setCurrentStep(prev => Math.max(prev - 1, 1));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
 
@@ -191,79 +304,9 @@ export default function JoinNow() {
     }
   };
 
-  const validateForm = () => {
-    const newErrors: { [key: string]: string } = {};
-
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    // Age validation: must be a number between 18 and 60 (inclusive)
-    if (!formData.age) {
-      newErrors.age = 'Valid age is required (18+)';
-    } else {
-      const ageNum = parseInt(formData.age as string, 10);
-      if (isNaN(ageNum) || ageNum < 18) {
-        newErrors.age = 'Valid age is required (18+)';
-      } else if (ageNum > 60) {
-        // User requested the specific response when age is greater than 60
-        newErrors.age = 'Age should be less than or equal to 60';
-      }
-    }
-    if (!formData.sex) newErrors.sex = 'Sex is required';
-    if (!formData.qualification) newErrors.qualification = 'Qualification is required';
-    if (!formData.mobile || formData.mobile.length < 10) newErrors.mobile = 'Valid mobile number is required';
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Valid email is required';
-  if (!formData.passportPhoto) newErrors.passportPhoto = 'Passport photo is required';
-  if (!formData.certificates) newErrors.certificates = 'Certificates are required';
-  if (!formData.aadharNumber.trim()) newErrors.aadharNumber = 'Aadhar number is required';
-  if (!formData.aadharPhoto) newErrors.aadharPhoto = 'Aadhar photo is required';
-    if (!formData.houseAddress.trim()) newErrors.houseAddress = 'House address is required';
-    if (!formData.clinicAddress.trim()) newErrors.clinicAddress = 'Clinic address is required';
-
-  let totalPercentage = 0;
-  nominees.forEach((n, idx) => {
-    if (!n.name.trim()) newErrors[`nominee_${idx}_name`] = 'Nominee name is required';
-    if (!n.age) newErrors[`nominee_${idx}_age`] = 'Nominee age is required';
-    if (!n.sex) newErrors[`nominee_${idx}_sex`] = 'Nominee sex is required';
-    if (!n.email || !/\S+@\S+\.\S+/.test(n.email)) newErrors[`nominee_${idx}_email`] = 'Valid nominee email is required';
-    if (!n.phone) newErrors[`nominee_${idx}_phone`] = 'Nominee phone is required';
-    if (!n.bankAccountNumber.trim()) newErrors[`nominee_${idx}_bankAccountNumber`] = 'Bank account is required';
-    if (n.bankAccountNumber.trim() !== n.bankAccountNumberConfirm.trim()) newErrors[`nominee_${idx}_bankAccountNumberConfirm`] = 'Account numbers do not match';
-    if (!n.ifscCode.trim()) newErrors[`nominee_${idx}_ifscCode`] = 'IFSC code is required';
-    if (!n.bankHolderName.trim()) newErrors[`nominee_${idx}_bankHolderName`] = 'Bank holder name is required';
-    
-    const p = parseFloat(n.percentage);
-    if (isNaN(p) || p <= 0) {
-      newErrors[`nominee_${idx}_percentage`] = 'Valid percentage required';
-    } else {
-      totalPercentage += p;
-    }
-  });
-
-  if (Math.abs(totalPercentage - 100) > 0.01) {
-    newErrors.nomineePercentageTotal = 'Total percentage across all nominees must be exactly 100%';
-  }
-
-  daughters.forEach((d, idx) => {
-    if (!d.name.trim()) newErrors[`daughter_${idx}_name`] = 'Daughter name is required';
-    if (!d.age) newErrors[`daughter_${idx}_age`] = 'Daughter age is required';
-    if (!d.relationshipType) newErrors[`daughter_${idx}_relationshipType`] = 'Relationship type is required';
-    if (!d.phone) newErrors[`daughter_${idx}_phone`] = 'Phone number is required';
-    if (!d.email || !/\S+@\S+\.\S+/.test(d.email)) newErrors[`daughter_${idx}_email`] = 'Valid email is required';
-    if (!d.aadharNumber.trim()) newErrors[`daughter_${idx}_aadharNumber`] = 'Aadhar number is required';
-    if (!d.aadharPhoto) newErrors[`daughter_${idx}_aadharPhoto`] = 'Aadhar photo is required';
-  });
-
-  if (!formData.password || formData.password.length < 6) newErrors.password = 'Password (min 6 chars) is required';
-
-  if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms and conditions';
-  if (!formData.subscribe) newErrors.subscribe = 'You must opt-in to receive updates';
-
-  setErrors(newErrors);
-  return Object.keys(newErrors).length === 0;
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) {
+    if (!validateStep(4)) {
       const firstErrorField = Object.keys(errors)[0];
       const element = document.getElementById(firstErrorField);
       if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -313,6 +356,7 @@ export default function JoinNow() {
           email: formData.family1Email,
           mobile: formData.family1Mobile,
           address: formData.family1Address,
+          aadharNumber: formData.family1AadharNumber,
         };
         if (family1.name) form.append('familyMember1', JSON.stringify(family1));
 
@@ -323,12 +367,15 @@ export default function JoinNow() {
           email: formData.family2Email,
           mobile: formData.family2Mobile,
           address: formData.family2Address,
+          aadharNumber: formData.family2AadharNumber,
         };
         if (family2.name) form.append('familyMember2', JSON.stringify(family2));
 
         if (formData.passportPhoto) form.append('passportPhoto', formData.passportPhoto);
         if (formData.certificates) form.append('certificates', formData.certificates);
         if (formData.aadharPhoto) form.append('aadharPhoto', formData.aadharPhoto);
+        if (formData.family1AadharPhoto) form.append('family1AadharPhoto', formData.family1AadharPhoto);
+        if (formData.family2AadharPhoto) form.append('family2AadharPhoto', formData.family2AadharPhoto);
 
         // lazy import api to avoid circulars
         const api = (await import('../api/backend')).default;
@@ -389,17 +436,45 @@ export default function JoinNow() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Doctors Welfare</h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
+          <p className="text-xl text-blue-100 max-w-3xl mb-4">
             Complete the registration form below to apply for Doctors Welfare membership. Open to all registered doctors aged 60 or below (Indian citizens only).
           </p>
+          <div className="bg-blue-800/50 p-4 rounded-lg inline-block border border-blue-400/30">
+            <ul className="text-blue-50 space-y-2">
+              <li className="flex items-center">
+                <CheckCircle className="mr-2 text-blue-300" size={18} />
+                <span>Yearly membership fee: <strong>₹100</strong></span>
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="mr-2 text-blue-300" size={18} />
+                <span>Contribution for daughter's marriage assistance: <strong>₹50</strong></span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 flex justify-center">
+            <div className="flex items-center space-x-2">
+              {[1, 2, 3, 4].map((step) => (
+                <div key={step} className="flex items-center">
+                  <div className={`w-8 h-8 flex items-center justify-center rounded-full font-bold ${currentStep === step ? 'bg-blue-600 text-white' : currentStep > step ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-600'}`}>
+                    {currentStep > step ? <CheckCircle size={16} /> : step}
+                  </div>
+                  {step < 4 && (
+                    <div className={`w-12 h-1 ${currentStep > step ? 'bg-green-500' : 'bg-gray-200'}`}></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-            <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Personal Information</h2>
+            {currentStep === 1 && (
+              <>
+                <div className="mb-10">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Personal Information</h2>
               <p className="text-gray-600">Please provide your personal details</p>
             </div>
 
@@ -553,7 +628,11 @@ export default function JoinNow() {
                 {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
               </div>
             </div>
+            </>
+          )}
 
+          {currentStep === 2 && (
+            <>
             <div className="mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Document Upload</h3>
 
@@ -673,7 +752,11 @@ export default function JoinNow() {
                 </div>
               </div>
             </div>
+            </>
+          )}
 
+          {currentStep === 3 && (
+            <>
             <div className="mb-8 bg-blue-50 p-6 rounded-xl">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 sm:mb-0">Nominee Details</h3>
@@ -1116,6 +1199,51 @@ export default function JoinNow() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   ></textarea>
                 </div>
+
+                {formData.family1Name.trim() && (
+                  <>
+                    <div className="md:col-span-2">
+                      <label htmlFor="family1AadharNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Number *
+                      </label>
+                      <input
+                        type="text"
+                        id="family1AadharNumber"
+                        name="family1AadharNumber"
+                        value={formData.family1AadharNumber}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-2 border ${errors.family1AadharNumber ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
+                      />
+                      {errors.family1AadharNumber && <p className="text-red-500 text-sm mt-1">{errors.family1AadharNumber}</p>}
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label htmlFor="family1AadharPhoto" className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Photo *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id="family1AadharPhoto"
+                          name="family1AadharPhoto"
+                          onChange={handleFileChange}
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor="family1AadharPhoto"
+                          className={`flex items-center justify-center w-full px-4 py-3 border-2 ${errors.family1AadharPhoto ? 'border-red-500' : 'border-gray-300'} border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors`}
+                        >
+                          <Upload className="mr-2 text-gray-400" size={20} />
+                          <span className="text-gray-600 truncate max-w-[200px]">
+                            {formData.family1AadharPhoto ? formData.family1AadharPhoto.name : 'Choose file'}
+                          </span>
+                        </label>
+                      </div>
+                      {errors.family1AadharPhoto && <p className="text-red-500 text-sm mt-1">{errors.family1AadharPhoto}</p>}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -1210,6 +1338,51 @@ export default function JoinNow() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   ></textarea>
                 </div>
+
+                {formData.family2Name.trim() && (
+                  <>
+                    <div className="md:col-span-2">
+                      <label htmlFor="family2AadharNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Number *
+                      </label>
+                      <input
+                        type="text"
+                        id="family2AadharNumber"
+                        name="family2AadharNumber"
+                        value={formData.family2AadharNumber}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-2 border ${errors.family2AadharNumber ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
+                      />
+                      {errors.family2AadharNumber && <p className="text-red-500 text-sm mt-1">{errors.family2AadharNumber}</p>}
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label htmlFor="family2AadharPhoto" className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Photo *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id="family2AadharPhoto"
+                          name="family2AadharPhoto"
+                          onChange={handleFileChange}
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor="family2AadharPhoto"
+                          className={`flex items-center justify-center w-full px-4 py-3 border-2 ${errors.family2AadharPhoto ? 'border-red-500' : 'border-gray-300'} border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors`}
+                        >
+                          <Upload className="mr-2 text-gray-400" size={20} />
+                          <span className="text-gray-600 truncate max-w-[200px]">
+                            {formData.family2AadharPhoto ? formData.family2AadharPhoto.name : 'Choose file'}
+                          </span>
+                        </label>
+                      </div>
+                      {errors.family2AadharPhoto && <p className="text-red-500 text-sm mt-1">{errors.family2AadharPhoto}</p>}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -1244,30 +1417,55 @@ export default function JoinNow() {
               </div>
               {errors.subscribe && <p className="text-red-500 text-sm">{errors.subscribe}</p>}
             </div>
+            </>
+          )}
 
-            <div className="text-center">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`px-12 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center mx-auto ${
-                  isSubmitting 
-                    ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
-                    : 'bg-blue-600 text-white hover:bg-blue-700'
-                }`}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="animate-spin mr-2" size={20} />
-                    Submitting...
-                  </>
-                ) : (
-                  'Submit Application'
-                )}
-              </button>
-              <p className="text-sm text-gray-600 mt-4">
-                Fields marked with * are mandatory
-              </p>
+            <div className="flex justify-between items-center mt-12 border-t pt-8">
+              {currentStep > 1 ? (
+                <button
+                  type="button"
+                  onClick={prevStep}
+                  className="px-8 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                >
+                  Back
+                </button>
+              ) : (
+                <div></div>
+              )}
+
+              {currentStep < 4 ? (
+                <button
+                  type="button"
+                  onClick={nextStep}
+                  className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                >
+                  Next Step
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center ${
+                    isSubmitting 
+                      ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                      : 'bg-green-600 text-white hover:bg-green-700'
+                  }`}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin mr-2" size={20} />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Submit Application'
+                  )}
+                </button>
+              )}
             </div>
+            
+            <p className="text-sm text-gray-600 mt-6 text-center">
+              Fields marked with * are mandatory
+            </p>
           </form>
         </div>
       </section>

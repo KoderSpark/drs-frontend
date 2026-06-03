@@ -166,6 +166,10 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>A contribution of ₹50 is collected from members for daughter's marriage assistance</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
                     <span>Subject to active membership, paid contributions, and completed lock-in period</span>
                   </li>
                   <li className="flex items-start">
@@ -235,7 +239,7 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>A yearly fee is required to register and maintain membership</span>
+                    <span>A yearly membership fee of ₹100 is required to register and maintain membership</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
