@@ -73,7 +73,7 @@ export default function Terms() {
             <div className="space-y-5 text-gray-700">
               <div>
                 <h3 className="font-semibold text-gray-900">OBJECTS OF TRUST</h3>
-                <p className="mt-1 pl-4 text-sm">The Trust shall work towards providing mutual financial, professional, social, and emotional support to members and their families, including assistance during death and marriage of daughters, promoting professional cooperation, and facilitating networking through digital and physical platforms, as determined by Trustees.</p>
+                <p className="mt-1 pl-4 text-sm">The Trust shall work towards providing mutual financial, professional, social, and emotional support to members and their families, including assistance during death, promoting professional cooperation, and facilitating networking through digital and physical platforms, as determined by Trustees.</p>
               </div>
 
               <h3 className="text-lg font-bold text-gray-800 border-b border-gray-200 pb-1 mt-6">MEMBERSHIP</h3>
@@ -172,91 +172,16 @@ export default function Terms() {
                 <p className="pl-4 mt-1">Assistance may be coordinated only if:</p>
                 <ul className="pl-8 mt-1 space-y-1 list-alpha">
                   <li>Assistance is provided in the event of death due to natural causes, accidents, or critical illnesses (including cancer and other specified diseases)</li>
-                  <li>Assistance is provided In case of Daughters marriage of the Member.</li>
+
                   <li>Enrollment is permitted from 18 years to 60 years, with coverage extending until age 65.</li>
                   <li>Member completed lock-in period</li>
                   <li>Member fulfilled contribution obligations</li>
                   <li>No fraud or suppression of facts exists</li>
                 </ul>
               </div>
+
               <div>
-                <h3 className="font-semibold text-gray-900 text-base">3. MARRIAGE ASSISTANCE TO DAUGHTERS OF MEMBERS</h3>
-                <div className="pl-4 space-y-3 mt-2">
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.1 OBJECT OF ASSISTANCE</h4>
-                    <p className="mt-1">The Trust may provide financial assistance to members for the solemnization of the marriage of their daughter(s) as a welfare measure, subject to these Bye-Laws and such rules as may be framed by the Trustees.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.2 DEFINITION OF DAUGHTER</h4>
-                    <p className="mt-1">For the purpose of this clause, "daughter" shall include:</p>
-                    <ul className="pl-6 mt-1 list-none">
-                      <li>(a) Biological daughter</li>
-                      <li>(b) Legally adopted daughter</li>
-                      <li>(c) Step-daughter or dependent female child who is wholly or substantially dependent on the member and recognized by the Trustees</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.3 ELIGIBILITY CRITERIA</h4>
-                    <p className="mt-1">A member shall be eligible only if:</p>
-                    <ul className="pl-6 mt-1 list-none">
-                      <li>(a) Minimum membership period (including lock-in period) is completed</li>
-                      <li>(b) Membership is active</li>
-                      <li>(c) All required contributions are fully paid</li>
-                      <li>(d) The marriage is legally valid</li>
-                      <li>(e) All conditions prescribed by the Trustees are satisfied</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.4 NATURE OF ASSISTANCE</h4>
-                    <p className="mt-1">The assistance provided under this clause shall be: Voluntary, Discretionary, Welfare-based.</p>
-                    <p className="mt-1 text-red-600 font-medium">No member or beneficiary shall have any legal, enforceable, or vested right to claim such assistance.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.5 DETERMINATION OF AMOUNT</h4>
-                    <p className="mt-1">The amount of assistance shall be determined solely by the Trustees. No fixed or guaranteed amount shall be payable. The Trust shall not be obligated to raise funds or incur liabilities for this purpose.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.6 LIMITATION</h4>
-                    <ul className="pl-6 mt-1 list-none">
-                      <li>(a) Assistance shall normally be granted only once per daughter</li>
-                      <li>(b) Multiple claims by the same member shall be subject to limits decided by the Trustees</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.7 APPLICATION PROCEDURE</h4>
-                    <p className="mt-1">The member shall apply in the prescribed format along with:</p>
-                    <ul className="pl-6 mt-1 list-disc">
-                      <li>Membership proof</li>
-                      <li>Identity proof of daughter</li>
-                      <li>Proof of marriage (invitation/registration)</li>
-                      <li>Any other documents required by the Trustees</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.8 TIME LIMIT FOR APPLICATION</h4>
-                    <ul className="pl-6 mt-1 list-disc">
-                      <li>Application must be submitted at least 90 days prior to the date of marriage</li>
-                      <li>No application shall be entertained after the date of marriage</li>
-                      <li>Trustees may condone delay at their discretion, provided the application is submitted before marriage with valid reasons</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.9 MODE OF DISBURSEMENT</h4>
-                    <p className="mt-1">The assistance amount may be paid to: Member, or Daughter, or Nominee as decided by the Trustees.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.10 VERIFICATION AND APPROVAL</h4>
-                    <p className="mt-1">The Trustees shall have full authority to: Verify documents, Conduct inquiry, Approve, reject, or defer applications.</p>
-                    <p className="mt-1 text-red-600">If any information is found false: Application may be rejected, Amount may be recovered, Membership may be terminated.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">3.11 NON-TRANSFERABILITY</h4>
-                    <p className="mt-1">The right to apply for marriage assistance is personal to the member and shall not be transferable.</p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 text-base">4. EXCLUSIONS</h3>
+                <h3 className="font-semibold text-gray-900 text-base">3. EXCLUSIONS</h3>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3 pl-4">
                   <p className="text-red-800 font-medium mb-1">No assistance shall be provided in cases where:</p>
                   <ul className="space-y-1 list-none pl-4 text-red-700">
@@ -268,7 +193,7 @@ export default function Terms() {
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 text-base">5. NO ASSURED BENEFIT</h3>
+                <h3 className="font-semibold text-gray-900 text-base">4. NO ASSURED BENEFIT</h3>
                 <ul className="pl-8 mt-1 space-y-1 list-decimal">
                   <li>The Trust does not assure or guarantee any amount.</li>
                   <li>Assistance depends on voluntary cooperation of members.</li>

@@ -156,28 +156,7 @@ export default function Membership() {
                   </li>
                 </ul>
               </div>
-              
-              <div className="bg-white/10 backdrop-blur rounded-lg p-6 md:col-span-2 lg:col-span-1">
-                <h3 className="text-xl font-semibold mb-4">Marriage Assistance</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Discretionary financial assistance for the solemnization of daughter's marriage</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>A contribution of ₹50 is collected from members for daughter's marriage assistance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Subject to active membership, paid contributions, and completed lock-in period</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Must apply at least 90 days prior to the marriage date</span>
-                  </li>
-                </ul>
-              </div>
+
             </div>
           </div>
 
