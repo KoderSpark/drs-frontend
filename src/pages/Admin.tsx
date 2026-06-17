@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/backend';
 import { useAuth } from '../context/AuthContext';
-import { Users, MessageSquare } from 'lucide-react';
+import { Users, MessageSquare, CreditCard, CheckCircle, XCircle } from 'lucide-react';
 
 interface Doctor {
   _id: string;
@@ -27,8 +27,20 @@ interface ContactMessage {
   createdAt: string;
 }
 
+interface Payment {
+  _id: string;
+  doctorId: { _id: string; name: string; email: string; phone: string; };
+  amount: number;
+  date: string;
+  referenceNumber: string;
+  paymentProof: string;
+  status: 'pending' | 'verified' | 'rejected';
+  remarks?: string;
+  createdAt: string;
+}
+
 export default function Admin() {
-  const [activeTab, setActiveTab] = useState<'doctors' | 'contacts'>('doctors');
+  const [activeTab, setActiveTab] = useState<'doctors' | 'contacts' | 'payments'>('doctors');
   
   // Doctors state
   const [doctors, setDoctors] = useState<Doctor[]>([]);
@@ -38,6 +50,9 @@ export default function Admin() {
 
   // Contacts state
   const [contacts, setContacts] = useState<ContactMessage[]>([]);
+
+  // Payments state
+  const [payments, setPayments] = useState<Payment[]>([]);
 
   // Shared state
   const [loading, setLoading] = useState(true);
@@ -62,6 +77,9 @@ export default function Admin() {
       } else if (activeTab === 'contacts') {
         const data = await api.contacts.list();
         setContacts(data);
+      } else if (activeTab === 'payments') {
+        const data = await api.payments.list();
+        setPayments(data);
       }
     } catch (err: any) {
       setError(err.message || 'Failed to load data');
@@ -101,7 +119,19 @@ export default function Admin() {
     }
   };
 
-  if (loading && !doctors.length && !contacts.length) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  const handleUpdatePaymentStatus = async (paymentId: string, status: string) => {
+    try {
+      const remarks = status === 'rejected' ? window.prompt('Enter reason for rejection:') : undefined;
+      if (status === 'rejected' && remarks === null) return; // cancelled
+
+      await api.payments.updateStatus(paymentId, { status, remarks: remarks || undefined });
+      fetchData();
+    } catch (err: any) {
+      alert(err.message || `Failed to ${status} payment`);
+    }
+  };
+
+  if (loading && !doctors.length && !contacts.length && !payments.length) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -135,6 +165,17 @@ export default function Admin() {
             >
               <MessageSquare className="mr-2" size={20} />
               Contact Queries
+            </button>
+            <button
+              onClick={() => setActiveTab('payments')}
+              className={`${
+                activeTab === 'payments'
+                  ? 'border-blue-500 text-blue-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center`}
+            >
+              <CreditCard className="mr-2" size={20} />
+              Payments
             </button>
           </nav>
         </div>
@@ -349,6 +390,70 @@ export default function Admin() {
                   </div>
                 ))
               )}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'payments' && (
+          <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Member</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment Details</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {payments.length === 0 ? (
+                    <tr>
+                      <td colSpan={4} className="px-6 py-8 text-center text-gray-500">No payment submissions found</td>
+                    </tr>
+                  ) : (
+                    payments.map((payment) => (
+                      <tr key={payment._id} className="hover:bg-gray-50">
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm font-medium text-gray-900">{payment.doctorId?.name || 'Unknown User'}</div>
+                          <div className="text-sm text-gray-500">{payment.doctorId?.email}</div>
+                          <div className="text-sm text-gray-500">{payment.doctorId?.phone}</div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="text-sm font-medium text-gray-900">₹{payment.amount}</div>
+                          <div className="text-sm text-gray-500">Date: {new Date(payment.date).toLocaleDateString()}</div>
+                          {payment.referenceNumber && <div className="text-sm text-gray-500">Ref: {payment.referenceNumber}</div>}
+                          <a href={payment.paymentProof} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline mt-1 inline-block">
+                            View Receipt/Screenshot
+                          </a>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                            payment.status === 'verified' ? 'bg-green-100 text-green-800' :
+                            payment.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                            'bg-yellow-100 text-yellow-800'
+                          }`}>
+                            {payment.status.charAt(0).toUpperCase() + payment.status.slice(1)}
+                          </span>
+                          {payment.remarks && <p className="text-xs text-red-600 mt-1 max-w-[150px] truncate" title={payment.remarks}>{payment.remarks}</p>}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          {payment.status === 'pending' && (
+                            <div className="flex justify-end space-x-2">
+                              <button onClick={() => handleUpdatePaymentStatus(payment._id, 'verified')} className="text-green-600 hover:text-green-900 flex items-center bg-green-50 px-2 py-1 rounded">
+                                <CheckCircle size={16} className="mr-1" /> Verify
+                              </button>
+                              <button onClick={() => handleUpdatePaymentStatus(payment._id, 'rejected')} className="text-red-600 hover:text-red-900 flex items-center bg-red-50 px-2 py-1 rounded">
+                                <XCircle size={16} className="mr-1" /> Reject
+                              </button>
+                            </div>
+                          )}
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         )}

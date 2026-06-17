@@ -105,7 +105,8 @@ export default function Terms() {
                   <li>Application shall be made in prescribed form (physical or digital).</li>
                   <li>Trustees shall have absolute discretion to approve or reject applications.</li>
                   <li>Admission shall be effective only after registration in Trust records.</li>
-                  <li>A yearly fee is required to register and maintain your Membership.</li>
+                  <li>A first-time registration fee of ₹500 and an annual renewal fee of ₹100 are required to maintain your Membership.</li>
+                  <li>A deceased contribution of ₹100 is also applicable.</li>
                 </ul>
               </div>
               <div>
@@ -123,8 +124,8 @@ export default function Terms() {
                   <li>Membership may be reinstated upon full payment of all outstanding dues.</li>
                   <li>Voluntary withdrawals may rejoin after fulfilling all financial obligations.</li>
                   <li>Participation may be discontinued at any time, subject to terms and conditions.</li>
-                  <li>Applicants must be aged 18 years to 60 years at the time of enrolment.</li>
-                  <li>Membership terminates automatically at age 65, regardless of the enrollment date.</li>
+                  <li>Applicants must be aged 18 years to under 65 years at the time of enrolment.</li>
+                  <li>Membership terminates automatically at age 70, regardless of the enrollment date.</li>
                 </ul>
               </div>
             </div>
@@ -173,7 +174,7 @@ export default function Terms() {
                 <ul className="pl-8 mt-1 space-y-1 list-alpha">
                   <li>Assistance is provided in the event of death due to natural causes, accidents, or critical illnesses (including cancer and other specified diseases)</li>
 
-                  <li>Enrollment is permitted from 18 years to 60 years, with coverage extending until age 65.</li>
+                  <li>Enrollment is permitted from 18 years to under 65 years, with coverage extending until age 70.</li>
                   <li>Member completed lock-in period</li>
                   <li>Member fulfilled contribution obligations</li>
                   <li>No fraud or suppression of facts exists</li>

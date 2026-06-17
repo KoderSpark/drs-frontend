@@ -206,11 +206,11 @@ export default function Membership() {
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Applicants must be aged <strong>60 or below</strong> at the time of enrollment</span>
+                    <span>Applicants must be aged <strong>under 65</strong> at the time of enrollment</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Membership terminates automatically at age <strong>65</strong></span>
+                    <span>Membership terminates automatically at age <strong>70</strong></span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
@@ -218,7 +218,11 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>A yearly membership fee of ₹100 is required to register and maintain membership</span>
+                    <span>Registration + first year fee is <strong>₹500</strong></span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
+                    <span>Annual renewal fee is <strong>₹100</strong>, Deceased contribution is <strong>₹100</strong></span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />

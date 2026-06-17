@@ -17,6 +17,7 @@ import Doctors from './pages/Doctors';
 import Deceased from './pages/Deceased';
 import Admin from './pages/Admin';
 import AdminLogin from './pages/AdminLogin';
+import Payments from './pages/Payments';
 
 // Protected Route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -82,6 +83,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Deceased />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/payments"
+              element={
+                <ProtectedRoute>
+                  <Payments />
                 </ProtectedRoute>
               }
             />

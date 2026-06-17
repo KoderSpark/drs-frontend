@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api/backend';
 
 interface Doctor {
@@ -44,19 +45,27 @@ export default function Doctors() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Registered Members</h1>
-          <div className="mt-4">
-              <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="mt-1 block w-48 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-            >
-              <option value="all">All Members</option>
-              <option value="approved">Active</option>
-              <option value="deceased">Deceased</option>
-            </select>
+        <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Registered Members</h1>
+            <div className="mt-4">
+                <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="block w-48 pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm"
+              >
+                <option value="all">All Members</option>
+                <option value="approved">Active</option>
+                <option value="deceased">Deceased</option>
+              </select>
+            </div>
           </div>
+          <Link
+            to="/payments"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-sm font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Submit Payment Information
+          </Link>
         </div>
 
         <div className="bg-white shadow overflow-hidden sm:rounded-lg">

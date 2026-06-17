@@ -35,7 +35,7 @@ export default function HowItWorks() {
                       Complete Registration
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Fill out the membership application form (physical or digital) with your personal details, medical credentials, and nominee information. Membership is open to Indian citizens only, aged 60 or below.
+                      Fill out the membership application form (physical or digital) with your personal details, medical credentials, and nominee information. Membership is open to Indian citizens only, aged under 65.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
@@ -112,15 +112,19 @@ export default function HowItWorks() {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
                       <CreditCard className="mr-3 text-blue-600" size={28} />
-                      Pay Yearly Membership Fee
+                      Pay Membership Fees
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
-                      Once approved, complete your yearly membership fee payment. A yearly fee is required to register and maintain your membership. Membership remains valid only as long as you comply with all Rules &amp; Bye-Laws.
+                      Once approved, complete your registration and membership fee payment. An annual fee is required to maintain your membership. Membership remains valid only as long as you comply with all Rules &amp; Bye-Laws.
                     </p>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Yearly membership registration fee</span>
+                        <span>Registration + First Year Fee: ₹500</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
+                        <span>Annual Renewal Fee: ₹100, Deceased Contribution: ₹100</span>
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
@@ -198,7 +202,7 @@ export default function HowItWorks() {
               </li>
               <li className="flex items-start">
                 <Shield className="text-yellow-600 mr-2 flex-shrink-0 mt-0.5" size={18} />
-                <span>Membership terminates automatically at age <strong>65</strong>, regardless of enrollment date.</span>
+                <span>Membership terminates automatically at age <strong>70</strong>, regardless of enrollment date.</span>
               </li>
             </ul>
           </div>
@@ -211,7 +215,7 @@ export default function HowItWorks() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Join a community of doctors who believe in mutual support. Enrollment open for registered doctors aged 60 and below.
+            Join a community of doctors who believe in mutual support. Enrollment open for registered doctors aged under 65.
           </p>
           <Link
             to="/join"

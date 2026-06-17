@@ -43,7 +43,7 @@ export default function FAQ() {
     },
     {
       question: 'Is there an age limit for membership?',
-      answer: 'Yes. Applicants must be aged 60 or below at the time of enrollment. Membership terminates automatically at age 65, regardless of the enrollment date. Coverage extends from enrollment up to age 65.',
+      answer: 'Yes. Applicants must be aged under 65 at the time of enrollment. Membership terminates automatically at age 70, regardless of the enrollment date. Coverage extends from enrollment up to age 70.',
     },
     {
       question: 'What is the lock-in period?',

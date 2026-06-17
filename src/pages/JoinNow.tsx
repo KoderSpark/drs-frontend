@@ -13,10 +13,12 @@ export interface Nominee {
   ifscCode: string;
   bankHolderName: string;
   percentage: string;
+  aadharNumber: string;
+  aadharPhoto: File | null;
 }
 
 export const initialNominee: Nominee = {
-  name: '', age: '', sex: '', email: '', phone: '', bankAccountNumber: '', bankAccountNumberConfirm: '', ifscCode: '', bankHolderName: '', percentage: '100'
+  name: '', age: '', sex: '', email: '', phone: '', bankAccountNumber: '', bankAccountNumberConfirm: '', ifscCode: '', bankHolderName: '', percentage: '100', aadharNumber: '', aadharPhoto: null
 };
 
 export interface Daughter {
@@ -188,8 +190,8 @@ export default function JoinNow() {
         const ageNum = parseInt(formData.age as string, 10);
         if (isNaN(ageNum) || ageNum < 18) {
           newErrors.age = 'Valid age is required (18+)';
-        } else if (ageNum > 60) {
-          newErrors.age = 'Age should be less than or equal to 60';
+        } else if (ageNum >= 65) {
+          newErrors.age = 'Age should be less than 65';
         }
       }
       if (!formData.sex) newErrors.sex = 'Sex is required';
@@ -220,6 +222,8 @@ export default function JoinNow() {
         if (n.bankAccountNumber.trim() !== n.bankAccountNumberConfirm.trim()) newErrors[`nominee_${idx}_bankAccountNumberConfirm`] = 'Account numbers do not match';
         if (!n.ifscCode.trim()) newErrors[`nominee_${idx}_ifscCode`] = 'IFSC code is required';
         if (!n.bankHolderName.trim()) newErrors[`nominee_${idx}_bankHolderName`] = 'Bank holder name is required';
+        if (!n.aadharNumber.trim()) newErrors[`nominee_${idx}_aadharNumber`] = 'Aadhar number is required';
+        if (!n.aadharPhoto) newErrors[`nominee_${idx}_aadharPhoto`] = 'Aadhar photo is required';
         
         const p = parseFloat(n.percentage);
         if (isNaN(p) || p <= 0) {
@@ -333,7 +337,16 @@ export default function JoinNow() {
         form.append('subscribeUpdates', formData.subscribe ? 'true' : 'false');
 
         // nominees array
-        form.append('nominees', JSON.stringify(nominees));
+        const nomineesJson = nominees.map(n => {
+          const { aadharPhoto, ...rest } = n;
+          return rest;
+        });
+        form.append('nominees', JSON.stringify(nomineesJson));
+        nominees.forEach((n, idx) => {
+          if (n.aadharPhoto) {
+            form.append(`nomineeAadharPhoto_${idx}`, n.aadharPhoto);
+          }
+        });
 
         if (daughters.length > 0) {
           const daughtersJson = daughters.map(d => {
@@ -437,13 +450,21 @@ export default function JoinNow() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Doctors Welfare</h1>
           <p className="text-xl text-blue-100 max-w-3xl mb-4">
-            Complete the registration form below to apply for Doctors Welfare membership. Open to all registered doctors aged 60 or below (Indian citizens only).
+            Complete the registration form below to apply for Doctors Welfare membership. Open to all registered doctors aged under 65 (Indian citizens only).
           </p>
           <div className="bg-blue-800/50 p-4 rounded-lg inline-block border border-blue-400/30">
             <ul className="text-blue-50 space-y-2">
               <li className="flex items-center">
                 <CheckCircle className="mr-2 text-blue-300" size={18} />
-                <span>Yearly membership fee: <strong>₹100</strong></span>
+                <span>Registration + First Year Fee: <strong>₹500</strong></span>
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="mr-2 text-blue-300" size={18} />
+                <span>Annual Renewal Fee: <strong>₹100</strong></span>
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="mr-2 text-blue-300" size={18} />
+                <span>Deceased Contribution: <strong>₹100</strong></span>
               </li>
 
             </ul>
@@ -942,6 +963,47 @@ export default function JoinNow() {
                         className={`w-full px-4 py-2 border ${errors[`nominee_${idx}_percentage`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-yellow-50`}
                       />
                       {errors[`nominee_${idx}_percentage`] && <p className="text-red-500 text-sm mt-1">{errors[`nominee_${idx}_percentage`]}</p>}
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label htmlFor={`nominee_${idx}_aadharNumber`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Number *
+                      </label>
+                      <input
+                        type="text"
+                        id={`nominee_${idx}_aadharNumber`}
+                        name="aadharNumber"
+                        value={nominee.aadharNumber}
+                        onChange={(e) => handleNomineeChange(idx, e)}
+                        className={`w-full px-4 py-2 border ${errors[`nominee_${idx}_aadharNumber`] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
+                      />
+                      {errors[`nominee_${idx}_aadharNumber`] && <p className="text-red-500 text-sm mt-1">{errors[`nominee_${idx}_aadharNumber`]}</p>}
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label htmlFor={`nominee_${idx}_aadharPhoto`} className="block text-sm font-medium text-gray-700 mb-2">
+                        Aadhar Photo *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id={`nominee_${idx}_aadharPhoto`}
+                          name="aadharPhoto"
+                          onChange={(e) => handleNomineeChange(idx, e)}
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor={`nominee_${idx}_aadharPhoto`}
+                          className={`flex items-center justify-center w-full px-4 py-3 border-2 ${errors[`nominee_${idx}_aadharPhoto`] ? 'border-red-500' : 'border-gray-300'} border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors`}
+                        >
+                          <Upload className="mr-2 text-gray-400" size={20} />
+                          <span className="text-gray-600 truncate max-w-[200px]">
+                            {nominee.aadharPhoto ? nominee.aadharPhoto.name : 'Choose file'}
+                          </span>
+                        </label>
+                      </div>
+                      {errors[`nominee_${idx}_aadharPhoto`] && <p className="text-red-500 text-sm mt-1">{errors[`nominee_${idx}_aadharPhoto`]}</p>}
                     </div>
                   </div>
                 </div>

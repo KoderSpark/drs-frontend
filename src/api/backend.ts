@@ -82,6 +82,15 @@ export const api = {
       request(`/api/doctors/${id}/approve`, { method: 'PATCH', headers: buildHeaders(true), body: JSON.stringify(payload) }),
     deceased: (id: string, payload: { reason?: string; diseaseName?: string }) =>
       request(`/api/doctors/${id}/deceased`, { method: 'POST', headers: buildHeaders(true), body: JSON.stringify(payload) }),
+  },
+
+  payments: {
+    submit: (form: FormData) => request('/api/payments', { method: 'POST', headers: buildHeaders(false), body: form }),
+    update: (id: string, form: FormData) => request(`/api/payments/${id}`, { method: 'PUT', headers: buildHeaders(false), body: form }),
+    me: () => request('/api/payments/me', { headers: buildHeaders(true) }),
+    list: () => request('/api/payments', { headers: buildHeaders(true) }),
+    updateStatus: (id: string, payload: { status: string; remarks?: string }) => 
+      request(`/api/payments/${id}/status`, { method: 'PUT', headers: buildHeaders(true), body: JSON.stringify(payload) })
   }
 };
 
