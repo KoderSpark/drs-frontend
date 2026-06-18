@@ -456,7 +456,7 @@ export default function JoinNow() {
             <ul className="text-blue-50 space-y-2">
               <li className="flex items-center">
                 <CheckCircle className="mr-2 text-blue-300" size={18} />
-                <span>Registration + First Year Fee: <strong>₹500</strong></span>
+                <span>Registration + First Year Fee: <strong>₹365</strong></span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="mr-2 text-blue-300" size={18} />

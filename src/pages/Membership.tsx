@@ -218,7 +218,7 @@ export default function Membership() {
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />
-                    <span>Registration + first year fee is <strong>₹500</strong></span>
+                    <span>Registration + first year fee is <strong>₹365</strong></span>
                   </li>
                   <li className="flex items-start">
                     <Check className="text-blue-600 mr-3 flex-shrink-0 mt-1" size={20} />

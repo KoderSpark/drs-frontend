@@ -135,7 +135,7 @@ export default function Home() {
             Ready to Join Our Community of Doctors?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Take the first step towards mutual support. Membership is open to all registered doctors aged 60 or below (Indian citizens only).
+            Take the first step towards mutual support. Membership is open to all registered doctors aged 65 or below (Indian citizens only).
           </p>
           <Link
             to="/join"

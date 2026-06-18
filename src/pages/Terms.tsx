@@ -105,7 +105,7 @@ export default function Terms() {
                   <li>Application shall be made in prescribed form (physical or digital).</li>
                   <li>Trustees shall have absolute discretion to approve or reject applications.</li>
                   <li>Admission shall be effective only after registration in Trust records.</li>
-                  <li>A first-time registration fee of ₹500 and an annual renewal fee of ₹100 are required to maintain your Membership.</li>
+                  <li>A first-time registration fee of ₹365 and an annual renewal fee of ₹100 are required to maintain your Membership.</li>
                   <li>A deceased contribution of ₹100 is also applicable.</li>
                 </ul>
               </div>

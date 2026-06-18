@@ -236,7 +236,7 @@ const Payments = () => {
                       value={formData.amount}
                       onChange={handleChange}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g. 500"
+                      placeholder="e.g. 365"
                     />
                   </div>
 
