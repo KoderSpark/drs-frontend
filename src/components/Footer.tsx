@@ -76,6 +76,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/terms-conditions" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy-policy" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/refund-policy" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  Refund Policy
+                </Link>
+              </li>
+              <li>
                 <Link to="/faq" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
                   FAQ
                 </Link>
@@ -117,9 +132,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-6 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm leading-loose">
             &copy; {new Date().getFullYear()} Professionals Welfare Trust (PWT). All rights reserved. |
             <Link to="/terms" className="hover:text-blue-400 transition-colors ml-1">By-Laws</Link> |
+            <Link to="/terms-conditions" className="hover:text-blue-400 transition-colors ml-1">Terms & Conditions</Link> |
+            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors ml-1">Privacy Policy</Link> |
+            <Link to="/refund-policy" className="hover:text-blue-400 transition-colors ml-1">Refund Policy</Link> |
             <Link to="/contact" className="hover:text-blue-400 transition-colors ml-1">Contact Us</Link>
           </p>
           <p className="text-gray-400 text-sm mt-2">

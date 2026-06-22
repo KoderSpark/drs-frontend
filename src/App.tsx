@@ -18,6 +18,9 @@ import Deceased from './pages/Deceased';
 import Admin from './pages/Admin';
 import AdminLogin from './pages/AdminLogin';
 import Payments from './pages/Payments';
+import RefundPolicy from './pages/RefundPolicy';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 
 // Protected Route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -60,6 +63,9 @@ function App() {
             <Route path="/join" element={<JoinNow />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
             
             {/* Protected Routes */}
             <Route
