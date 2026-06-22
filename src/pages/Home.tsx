@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Shield, Users, Heart, CheckCircle, ArrowRight, Gift, Clock, FileText, CheckCircle2 } from 'lucide-react';
+import homeBg from '../assets/Home.jpg';
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       <section 
         className="relative bg-cover bg-center bg-no-repeat text-white py-32" 
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/community_bg.png')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(${homeBg})`,
           backgroundAttachment: 'fixed'
         }}
       >
