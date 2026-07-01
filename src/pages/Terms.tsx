@@ -379,6 +379,7 @@ export default function Terms() {
                   <p><strong>10.2.</strong> The Trust reserves the right to create, modify, suspend or amend any welfare scheme or assistance program or other benefits for the registered members or designated classes of members.</p>
                   <p><strong>10.3.</strong> The Rules and Bye-laws can be revised, amended, altered, suspended and updated at any time by the Trustees of the trust according to the aims and needs of the organization.</p>
                   <p><strong>10.4.</strong> The version of the rules uploaded on the official website shall be deemed final and legally binding.</p>
+                  <p><strong>10.5.</strong> <strong>Professionals Welfare Trust</strong> reserves the right to amend, increase, reduce, introduce, or discontinue membership fees, contribution fees, or any other applicable fees as deemed necessary. All fee revisions shall become effective from the date notified by <strong>Professionals Welfare Trust</strong>.</p>
                 </div>
               </div>
             </div>

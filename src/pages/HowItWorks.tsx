@@ -66,8 +66,8 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80"
-                  alt="Doctor reviewing medical documents"
+                  src="https://images.pexels.com/photos/325135/pexels-photo-325135.jpeg?_gl=1*1typk5g*_ga*OTI2NDQ0Njk4LjE3NzM5NzgwNzE.*_ga_8JE65Q40S6*czE3NzYzNjc4MjEkbzIkZzEkdDE3NzYzNjc4NjQkajE3JGwwJGgw"
+                  alt="Doctor processing membership payment"
                   className="rounded-lg shadow-lg"
                 />
               </div>
@@ -75,6 +75,43 @@ export default function HowItWorks() {
                 <div className="flex items-start">
                   <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0 mr-4">
                     2
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
+                      <CreditCard className="mr-3 text-blue-600" size={28} />
+                      Pay Membership Fees
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      Complete your registration and membership fee payment. An annual fee is required to maintain your membership. Membership remains valid only as long as you comply with all Rules &amp; Bye-Laws.
+                    </p>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
+                        <span>Registration + First Year Fee: ₹365</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
+                        <span>Annual Renewal Fee: ₹100, Deceased Contribution: ₹100</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
+                        <span>Membership is non-transferable and non-assignable</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
+                        <span>Payment confirmation and registration in Trust records</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="flex items-start">
+                  <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0 mr-4">
+                    3
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
@@ -101,47 +138,10 @@ export default function HowItWorks() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <div className="flex items-start">
-                  <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0 mr-4">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center">
-                      <CreditCard className="mr-3 text-blue-600" size={28} />
-                      Pay Membership Fees
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      Once approved, complete your registration and membership fee payment. An annual fee is required to maintain your membership. Membership remains valid only as long as you comply with all Rules &amp; Bye-Laws.
-                    </p>
-                    <ul className="space-y-2 text-gray-600">
-                      <li className="flex items-start">
-                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Registration + First Year Fee: ₹500</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Annual Renewal Fee: ₹100, Deceased Contribution: ₹100</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Membership is non-transferable and non-assignable</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={18} />
-                        <span>Payment confirmation and registration in Trust records</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
               <div className="order-1 md:order-2">
                 <img
-                  src="https://images.pexels.com/photos/325135/pexels-photo-325135.jpeg?_gl=1*1typk5g*_ga*OTI2NDQ0Njk4LjE3NzM5NzgwNzE.*_ga_8JE65Q40S6*czE3NzYzNjc4MjEkbzIkZzEkdDE3NzYzNjc4NjQkajE3JGwwJGgw"
-                  alt="Doctor processing membership payment"
+                  src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80"
+                  alt="Doctor reviewing medical documents"
                   className="rounded-lg shadow-lg"
                 />
               </div>
